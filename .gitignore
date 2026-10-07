@@ -1,0 +1,16 @@
+# Sistema e editores
+Thumbs.db
+.DS_Store
+*.swp
+.vscode/
+.idea/
+
+# Logs e temporários
+*.log
+npm-debug.log*
+tmp/
+temp/
+
+# Arquivos de teste / montagem
+_*.jpg
+_*.png
