@@ -32,6 +32,25 @@ setTimeout(function(){
 
 <div class="progress" aria-hidden="true"><span class="progress__bar" id="progressBar"></span></div>
 
+<!-- ============================ NAV PRINCIPAL ============================ -->
+<nav class="main-nav" aria-label="Navegar pelo álbum">
+  <div class="container nav__inner">
+    <a class="nav__brand" href="#topo">Álbum digital</a>
+    <ul class="nav-list">
+      <li><a href="#album" class="nav-link">Fotos</a></li>
+      <li><a href="#videos" class="nav-link">Vídeos</a></li>
+      <li><a href="#reservados" class="nav-link">Espaços</a></li>
+    </ul>
+    <div class="nav-search" role="search">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input type="search" id="busca" placeholder="Buscar foto ou vídeo…" aria-label="Buscar foto ou vídeo" autocomplete="off">
+      <button type="button" id="buscaLimpar" aria-label="Limpar busca" hidden>✕</button>
+    </div>
+  </div>
+</nav>
+<!-- /NAV PRINCIPAL -->
+
+
 <!-- ============================ HERO ============================ -->
 <header class="hero">
   <div class="hero__glow" aria-hidden="true"></div>
@@ -77,20 +96,6 @@ setTimeout(function(){
     </div>
   </div>
 </header>
-    <!-- ============================ NAV PRINCIPAL ============================ -->
-    <nav class="main-nav" aria-label="Navegar pelo álbum">
-      <div class="container nav__inner">
-        <a class="nav__brand" href="#topo">Álbum digital</a>
-        <ul class="nav-list">
-          <li><a href="#album" class="nav-link">Fotos</a></li>
-          <li><a href="#videos" class="nav-link">Vídeos</a></li>
-          <li><a href="#reservados" class="nav-link">Espaços</a></li>
-        </ul>
-      </div>
-    </nav>
-    <!-- /NAV PRINCIPAL -->
-
-
 <main>
 
   <!-- ============================ ÁLBUM ============================ -->

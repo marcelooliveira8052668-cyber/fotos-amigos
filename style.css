@@ -563,6 +563,28 @@ button{font-family:inherit}
 .nav-link:hover{background:var(--accent-soft);color:var(--ink)}
 .nav-link.is-active{background:var(--ink);color:#fff}
 
+/* busca na nav */
+.nav-search{
+  display:flex;align-items:center;gap:8px;flex:0 1 280px;
+  background:#fff;border:1px solid var(--line-strong);border-radius:999px;
+  padding:7px 8px 7px 12px;
+}
+.nav-search svg{width:16px;height:16px;flex:0 0 auto;color:var(--ink-3)}
+.nav-search input{
+  flex:1;min-width:0;border:0;background:none;outline:none;
+  font:inherit;font-size:.85rem;color:var(--ink);
+}
+.nav-search input::placeholder{color:var(--ink-3)}
+.nav-search button{
+  flex:0 0 auto;border:0;background:var(--bg);color:var(--ink-2);
+  width:24px;height:24px;border-radius:50%;cursor:pointer;font-size:.7rem;line-height:1;
+}
+.nav-search button[hidden]{display:none}
+@media (max-width:760px){
+  .nav__inner{flex-wrap:wrap;row-gap:8px}
+  .nav-search{flex:1 1 100%;order:3}
+}
+
 /* ============================================================
    CURTIDAS + COMENTÁRIOS (por foto)
    ============================================================ */

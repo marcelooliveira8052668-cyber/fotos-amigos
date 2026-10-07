@@ -683,6 +683,76 @@
   });
 
   /* ---------------------------------------------------------
+     busca na nav (fotos + vídeos)
+     --------------------------------------------------------- */
+  var buscaInput = document.getElementById('busca');
+  var buscaLimpar = document.getElementById('buscaLimpar');
+
+  function normTxt(s) {
+    return (s || '').toLowerCase()
+      .normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+  }
+  function applySearch() {
+    if (!buscaInput) return;
+    var q = normTxt(buscaInput.value.trim());
+    if (buscaLimpar) buscaLimpar.hidden = !q;
+
+    if (!q) { // limpa: volta ao filtro do chip
+      applyFilter(activeFilter);
+      renderVideoSlots();
+      return;
+    }
+
+    var vis = 0, tot = totalPhotos();
+    allCards().forEach(function (card) {
+      var img = card.querySelector('img');
+      var hay = normTxt(
+        (img ? (img.alt || '') : '') + ' ' +
+        (card.dataset.date || '') + ' ' +
+        (card.dataset.collection || '') + ' ' +
+        labelFor(card.dataset.collection || '')
+      );
+      var ok = hay.indexOf(q) !== -1;
+      card.hidden = !ok;
+      if (ok) vis++;
+    });
+    countEl.textContent = vis + ' de ' + tot + (tot === 1 ? ' foto' : ' fotos') + ' para "' + buscaInput.value.trim() + '"';
+    emptyEl.hidden = vis > 0;
+
+    var vv = 0;
+    videoCards().forEach(function (card) {
+      var hay = normTxt((card.dataset.title || '') + ' ' + (card.dataset.date || ''));
+      var ok = hay.indexOf(q) !== -1;
+      card.hidden = !ok;
+      if (ok) vv++;
+    });
+    if (videoCount) {
+      videoCount.textContent = vv
+        ? vv + (vv === 1 ? ' vídeo para "' : ' vídeos para "') + buscaInput.value.trim() + '"'
+        : 'Nada em vídeos para "' + buscaInput.value.trim() + '"';
+    }
+    if (videoEmpty) videoEmpty.hidden = true;
+  }
+
+  if (buscaInput) {
+    buscaInput.addEventListener('input', applySearch);
+    buscaInput.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        var alvo = document.getElementById('album');
+        if (alvo) alvo.scrollIntoView({ behavior: 'smooth' });
+      }
+      if (e.key === 'Escape') { buscaInput.value = ''; applySearch(); buscaInput.blur(); }
+    });
+  }
+  if (buscaLimpar) buscaLimpar.addEventListener('click', function () {
+    if (!buscaInput) return;
+    buscaInput.value = '';
+    applySearch();
+    buscaInput.focus();
+  });
+
+  /* ---------------------------------------------------------
      init
      --------------------------------------------------------- */
   allCards().forEach(function (card, i) { observe(card, i, false); });
