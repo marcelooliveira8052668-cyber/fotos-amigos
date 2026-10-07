@@ -11,7 +11,9 @@
     julho: 'Julho',
     setembro: 'Setembro',
     outubro: 'Outubro',
-    novas: 'Adicionadas'
+    novas: 'Adicionadas',
+    maio: 'Maio',
+    junho: 'Junho'
   };
   LABELS.dezembro = 'Dezembro';
 
