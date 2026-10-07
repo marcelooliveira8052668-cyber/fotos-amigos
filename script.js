@@ -41,6 +41,7 @@
   var lbPrev    = document.getElementById('lbPrev');
   var lbNext    = document.getElementById('lbNext');
   var lbPlay    = document.getElementById('lbPlay');
+  var lbThumbs  = document.getElementById('lbThumbs');
   var lbTimer   = null;
   var LB_DELAY  = 4000; // apresentação automática: 4s por foto (ideal p/ telão)
 
@@ -253,6 +254,7 @@
     lbOpen = true;
     document.body.style.overflow = 'hidden';
     renderLb();
+    renderThumbs();
     lbClose.focus();
   }
 
@@ -288,8 +290,50 @@
 
     lbDate.textContent = card.dataset.date || '';
     lbCounter.textContent = (lbIdx + 1) + ' / ' + lbList.length;
+    markThumb();
     preload(lbIdx + 1);
     preload(lbIdx - 1);
+  }
+
+  /* carrossel de miniaturas: qualquer foto abre clicando */
+  function renderThumbs() {
+    if (!lbThumbs) return;
+    lbThumbs.innerHTML = '';
+    lbList.forEach(function (card, i) {
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'lb-thumb';
+      b.setAttribute('aria-label', 'Ir para o item ' + (i + 1) + ' de ' + lbList.length);
+      var im = card.querySelector('img');
+      if (im) {
+        var t = document.createElement('img');
+        t.src = im.currentSrc || im.src;
+        t.alt = '';
+        t.loading = 'lazy';
+        b.appendChild(t);
+      } else {
+        b.classList.add('is-video');
+        b.innerHTML = '<span aria-hidden="true">▶</span>';
+      }
+      (function (n) {
+        b.addEventListener('click', function () { lbIdx = n; renderLb(); });
+      })(i);
+      lbThumbs.appendChild(b);
+    });
+    markThumb();
+  }
+  function markThumb() {
+    if (!lbThumbs || !lbThumbs.children.length) return;
+    Array.prototype.forEach.call(lbThumbs.children, function (el, i) {
+      var on = i === lbIdx;
+      el.classList.toggle('is-on', on);
+      if (on) {
+        el.setAttribute('aria-current', 'true');
+        try { el.scrollIntoView({ block: 'nearest', inline: 'center' }); } catch (e) {}
+      } else {
+        el.removeAttribute('aria-current');
+      }
+    });
   }
 
   function preload(i) {
