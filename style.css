@@ -629,13 +629,13 @@ button{font-family:inherit}
   color:var(--ink-2);background:var(--surface);border:1px solid var(--line);
   border-radius:999px;padding:3px 9px;
 }
-.comment-row{display:flex;gap:8px;margin-top:10px}
+.comment-row{display:flex;flex-direction:column;gap:8px;margin-top:10px}
 .comment-text{
   flex:1;border:1px solid var(--line);border-radius:10px;
   padding:8px 12px;font:inherit;font-size:.85rem;background:#fff;color:var(--ink);
 }
 .comment-btn{
-  border:0;border-radius:10px;padding:8px 14px;cursor:pointer;
+  align-self:center;border:0;border-radius:999px;padding:8px 28px;cursor:pointer;
   background:var(--ink);color:#fff;font-weight:600;font-size:.85rem;
 }
 .comment-count{margin:8px 0 0;font-size:.78rem;color:var(--ink-3)}

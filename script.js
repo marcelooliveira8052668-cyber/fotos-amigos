@@ -5,7 +5,7 @@
   'use strict';
 
   var TOTAL_SLOTS = 120;               // tamanho total do álbum
-  var TOTAL_VIDEO_SLOTS = 6;           // espaços de vídeo
+  var TOTAL_VIDEO_SLOTS = 15;          // espaços de vídeo (12 usados + 3 livres)
   var LABELS = {
     all: 'Todas',
     julho: 'Julho',
@@ -16,6 +16,9 @@
     junho: 'Junho'
   };
   LABELS.dezembro = 'Dezembro';
+  LABELS.viagens = 'Viagens';
+  LABELS.momentos = 'Momentos';
+  LABELS.memorias = 'Memórias';
 
   var ICON_PLUS = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>';
   var ICON_ZOOM = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>';
@@ -530,6 +533,7 @@
     fig.querySelector('strong').textContent = name;
     fig.querySelector('.video-card__date').textContent = today;
     fig.querySelector('.video-card__open').setAttribute('aria-label', 'Assistir: ' + name);
+    fig.insertAdjacentHTML('beforeend', interactionHTML(newUploadKey('video', file && file.name), name));
     return fig;
   }
 
@@ -588,6 +592,7 @@
     img.alt = 'Foto adicionada — ' + (file ? file.name : today);
     img.src = src;
     fig.querySelector('.photo-card__date').textContent = today;
+    fig.insertAdjacentHTML('beforeend', interactionHTML(newUploadKey('foto', file && file.name), 'foto'));
 
     // reserva o espaço correto para evitar "pulo" no masonry
     var probe = new Image();
@@ -799,8 +804,183 @@
   });
 
   /* ---------------------------------------------------------
+     catálogo estático (data.js -> galeria)
+     Monta os cards de foto e vídeo a partir de window.ALBUM_DATA,
+     gerado das pastas fotos/ e videos/. Sem isso a galeria abre vazia.
+     --------------------------------------------------------- */
+  function escHtml(s) {
+    return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  }
+
+  function staticPhotoCard(name, i, total) {
+    var col = (window.ALBUM_DATA && window.ALBUM_DATA.getCollection)
+      ? window.ALBUM_DATA.getCollection(name) : 'memorias';
+    var fig = document.createElement('figure');
+    fig.className = 'photo-card reveal';
+    fig.dataset.collection = col;
+    fig.dataset.date = '';
+    fig.innerHTML =
+      '<button class="photo-card__open" type="button" aria-label="Ampliar foto ' + (i + 1) + ' de ' + total + '">' +
+        '<img src="fotos/' + encodeURIComponent(name) + '" alt="Foto ' + (i + 1) + ' do álbum" loading="lazy" decoding="async">' +
+        '<span class="photo-card__meta"><span class="photo-card__zoom" aria-hidden="true">' + ICON_ZOOM + '</span></span>' +
+      '</button>';
+    fig.insertAdjacentHTML('beforeend', interactionHTML('foto:' + name, 'foto ' + (i + 1)));
+    return fig;
+  }
+
+  function staticVideoCard(name) {
+    var base = name.replace(/\.[^.]+$/, '');
+    var src = encodeURI('videos/' + name);
+    var fig = document.createElement('figure');
+    fig.className = 'video-card';
+    fig.dataset.kind = 'file';
+    fig.dataset.src = src;
+    fig.dataset.title = base;
+    fig.dataset.date = '';
+    fig.innerHTML =
+      '<button class="video-card__open" type="button" aria-label="Assistir: ' + escHtml(base) + '">' +
+        '<span class="video-card__frame">' +
+          '<video preload="metadata" muted playsinline></video>' +
+          '<span class="video-card__play" aria-hidden="true"><span>' + ICON_PLAY + '</span></span>' +
+        '</span>' +
+        '<span class="video-card__info"><span><strong></strong></span></span>' +
+      '</button>';
+    fig.querySelector('video').src = src;
+    fig.querySelector('strong').textContent = base;
+    fig.insertAdjacentHTML('beforeend', interactionHTML('video:' + name, base));
+    return fig;
+  }
+
+  function renderCatalog() {
+    if (!window.ALBUM_DATA) return;
+    var imgs = window.ALBUM_DATA.images || [];
+    var vds = window.ALBUM_DATA.videos || [];
+    var i;
+    for (i = 0; i < imgs.length; i++) {
+      gallery.appendChild(staticPhotoCard(imgs[i], i, imgs.length));
+    }
+    if (videoGallery) {
+      for (i = 0; i < vds.length; i++) {
+        videoGallery.appendChild(staticVideoCard(vds[i]));
+      }
+    }
+  }
+
+  /* ---------------------------------------------------------
+     curtidas + comentários (por foto e por vídeo, localStorage)
+     Vale para o catálogo (data.js) e para arquivos enviados na hora.
+     --------------------------------------------------------- */
+  var ICON_HEART = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.69l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>';
+
+  function interactionHTML(key, label) {
+    return '<div class="photo-interaction">' +
+      '<button class="like-btn" type="button" data-foto="' + escHtml(key) + '" aria-label="Curtir ' + escHtml(label) + '">' +
+        ICON_HEART +
+        '<span class="like-count">0</span>' +
+      '</button>' +
+      '<div class="comment-row">' +
+        '<input class="comment-text" type="text" placeholder="Deixe um comentário..." data-foto="' + escHtml(key) + '" aria-label="Escrever comentário">' +
+        '<button class="comment-btn" type="button" data-foto="' + escHtml(key) + '">Enviar</button>' +
+      '</div>' +
+      '<p class="comment-count">0 comentários</p>' +
+      '<ul class="comment-list"></ul>' +
+    '</div>';
+  }
+
+  function newUploadKey(prefix, name) {
+    return 'novo:' + prefix + ':' + Date.now().toString(36) +
+      Math.floor(Math.random() * 1296).toString(36) + ':' + (name || 'arquivo');
+  }
+
+  function getLikes(key) {
+    try { return parseInt(localStorage.getItem('like-' + key), 10) || 0; }
+    catch (e) { return 0; }
+  }
+  function setLikes(key, n) {
+    try { localStorage.setItem('like-' + key, String(n)); } catch (e) {}
+  }
+  function getComments(key) {
+    try { return JSON.parse(localStorage.getItem('comments-' + key) || '[]'); }
+    catch (e) { return []; }
+  }
+  function setComments(key, arr) {
+    try { localStorage.setItem('comments-' + key, JSON.stringify(arr)); } catch (e) {}
+  }
+
+  function renderComments(box) {
+    var send = box.querySelector('.comment-btn');
+    var key = send && send.getAttribute('data-foto');
+    if (!key) return;
+    var arr = getComments(key);
+    var list = box.querySelector('.comment-list');
+    var count = box.querySelector('.comment-count');
+    list.innerHTML = '';
+    arr.forEach(function (t) {
+      var li = document.createElement('li');
+      li.textContent = t;
+      list.appendChild(li);
+    });
+    count.textContent = arr.length + (arr.length === 1 ? ' comentário' : ' comentários');
+  }
+
+  function postComment(box) {
+    var input = box.querySelector('.comment-text');
+    var send = box.querySelector('.comment-btn');
+    var key = send && send.getAttribute('data-foto');
+    var t = input.value.trim();
+    if (!t || !key) return;
+    var arr = getComments(key);
+    arr.push(t);
+    setComments(key, arr);
+    renderComments(box);
+    input.value = '';
+  }
+
+  function hydrateInteractions(scope) {
+    (scope || document).querySelectorAll('.like-btn').forEach(function (btn) {
+      var n = getLikes(btn.getAttribute('data-foto'));
+      btn.querySelector('.like-count').textContent = n;
+      btn.classList.toggle('is-liked', n > 0);
+    });
+    (scope || document).querySelectorAll('.photo-interaction').forEach(renderComments);
+  }
+
+  document.addEventListener('click', function (e) {
+    var like = e.target.closest && e.target.closest('.like-btn');
+    if (like) {
+      e.stopPropagation();
+      var key = like.getAttribute('data-foto');
+      var el = like.querySelector('.like-count');
+      var n = parseInt(el.textContent, 10);
+      if (isNaN(n)) n = 0;
+      n++;
+      el.textContent = n;
+      like.classList.add('is-liked');
+      setLikes(key, n);
+      return;
+    }
+    var send = e.target.closest && e.target.closest('.comment-btn');
+    if (send) {
+      e.stopPropagation();
+      var box = send.closest('.photo-interaction');
+      if (box) postComment(box);
+    }
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter' && e.target.classList && e.target.classList.contains('comment-text')) {
+      e.stopPropagation();
+      var box = e.target.closest('.photo-interaction');
+      if (box) postComment(box);
+    }
+  });
+
+  /* ---------------------------------------------------------
      init
      --------------------------------------------------------- */
+  renderCatalog();
+  hydrateInteractions(document);
   allCards().forEach(function (card, i) { observe(card, i, false); });
   syncChips();
   applyFilter('all');
