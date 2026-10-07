@@ -40,6 +40,9 @@
   var lbClose   = document.getElementById('lbClose');
   var lbPrev    = document.getElementById('lbPrev');
   var lbNext    = document.getElementById('lbNext');
+  var lbPlay    = document.getElementById('lbPlay');
+  var lbTimer   = null;
+  var LB_DELAY  = 4000; // apresentação automática: 4s por foto (ideal p/ telão)
 
   var dropzone  = document.getElementById('dropzone');
   var toast     = document.getElementById('toast');
@@ -306,11 +309,42 @@
 
   function closeLb() {
     if (!lbOpen) return;
+    stopSlideshow();
     lbOpen = false;
     stopMedia();
     lightbox.hidden = true;
     document.body.style.overflow = '';
     if (lastFocused && lastFocused.isConnected) lastFocused.focus();
+  }
+
+  /* apresentação automática (telão): avança 1 foto a cada 4s, em loop */
+  function isVideoCard(card) { return card && (card.dataset.kind || '') === 'file'; }
+  function updatePlayBtn() {
+    if (!lbPlay) return;
+    var on = lbTimer !== null;
+    lbPlay.classList.toggle('is-on', on);
+    lbPlay.setAttribute('aria-pressed', on ? 'true' : 'false');
+    lbPlay.setAttribute('aria-label', on ? 'Pausar apresentação' : 'Apresentação automática');
+    var playIcon = lbPlay.querySelector('.lb-play__play');
+    var pauseIcon = lbPlay.querySelector('.lb-play__pause');
+    if (playIcon) playIcon.hidden = on;
+    if (pauseIcon) pauseIcon.hidden = !on;
+  }
+  function stopSlideshow() {
+    if (lbTimer !== null) { clearInterval(lbTimer); lbTimer = null; }
+    updatePlayBtn();
+  }
+  function startSlideshow() {
+    stopSlideshow();
+    lbTimer = setInterval(function () {
+      nav(1);
+      if (isVideoCard(currentCard())) stopSlideshow(); // pausa no vídeo p/ assistir
+    }, LB_DELAY);
+    updatePlayBtn();
+  }
+  function toggleSlideshow() {
+    if (lbTimer !== null) stopSlideshow();
+    else startSlideshow();
   }
 
   gallery.addEventListener('click', function (e) {

@@ -436,6 +436,9 @@ button{font-family:inherit}
 }
 .lb-btn svg{width:19px;height:19px}
 .lb-btn:hover{background:#fff;border-color:var(--ink);transform:scale(1.07)}
+.lb-play svg[hidden]{display:none}
+.lb-play.is-on{background:var(--ink);border-color:var(--ink);color:#fff}
+.lb-play.is-on:hover{background:var(--ink);border-color:var(--ink);color:#fff}
 
 .lb-counter{
   font-size:.85rem;font-variant-numeric:tabular-nums;color:var(--ink-2);
