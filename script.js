@@ -366,6 +366,7 @@
   lbClose.addEventListener('click', closeLb);
   lbPrev.addEventListener('click', function () { nav(-1); });
   lbNext.addEventListener('click', function () { nav(1); });
+  if (lbPlay) lbPlay.addEventListener('click', function () { toggleSlideshow(); });
 
   lightbox.addEventListener('click', function (e) {
     if (e.target === lightbox) closeLb();
@@ -378,8 +379,9 @@
     else if (e.key === 'ArrowLeft' || e.key === 'PageUp') { e.preventDefault(); nav(-1); }
     else if (e.key === 'Home') { e.preventDefault(); lbIdx = 0; renderLb(); }
     else if (e.key === 'End') { e.preventDefault(); lbIdx = lbList.length - 1; renderLb(); }
+    else if (e.key === ' ' && !(e.target.closest && e.target.closest('button,input,textarea'))) { e.preventDefault(); toggleSlideshow(); }
     else if (e.key === 'Tab') {
-      var f = [lbClose, lbPrev, lbNext];
+      var f = [lbClose, lbPlay, lbPrev, lbNext].filter(function (el) { return !!el; });
       var pos = f.indexOf(document.activeElement);
       e.preventDefault();
       var next = e.shiftKey ? pos - 1 : pos + 1;
