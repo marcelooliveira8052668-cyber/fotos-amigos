@@ -111,7 +111,7 @@ const VIDEOS = [
 // Organizar por colecoes (mesmos nomes dos filtros do site)
 function getCollection(filename) {
   const lower = filename.toLowerCase();
-  if (lower.startsWith('foto-')) return 'viagens';
+  if (lower.startsWith('foto-')) return 'fotos';
   if (lower.startsWith('img_')) return 'momentos';
   return 'memorias';
 }

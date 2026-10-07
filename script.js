@@ -16,7 +16,7 @@
     junho: 'Junho'
   };
   LABELS.dezembro = 'Dezembro';
-  LABELS.viagens = 'Viagens';
+  LABELS.fotos = 'Fotos';
   LABELS.momentos = 'Momentos';
   LABELS.memorias = 'Memórias';
 

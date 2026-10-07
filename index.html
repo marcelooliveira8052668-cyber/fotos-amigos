@@ -1,263 +1,319 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Fotos entre Amigos</title>
-<meta name="description" content="Um álbum digital para guardar viagens, encontros e os bons momentos entre amigos.">
-<meta name="theme-color" content="#f6f6f7">
-<meta property="og:title" content="Fotos entre Amigos">
-<meta property="og:description" content="Um álbum digital para guardar viagens, encontros e os bons momentos entre amigos.">
-<meta property="og:image" content="fotos/foto-01.jpeg">
-<meta property="og:type" content="website">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fotos entre Amigos</title>
+  <meta name="description" content="Um álbum digital para guardar viagens, encontros e os bons momentos entre amigos.">
+  <meta name="theme-color" content="#f6f6f7">
+  <meta property="og:title" content="Fotos entre Amigos">
+  <meta property="og:description"
+    content="Um álbum digital para guardar viagens, encontros e os bons momentos entre amigos.">
+  <meta property="og:image" content="fotos/foto-01.jpeg">
+  <meta property="og:type" content="website">
 
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%93%B8%3C/text%3E%3C/svg%3E">
+  <link rel="icon"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%93%B8%3C/text%3E%3C/svg%3E">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap"
+    rel="stylesheet">
 
-<link rel="stylesheet" href="style.css">
-<script>
-document.documentElement.classList.add('js');
-/* segurança: se o script.js não carregar, o álbum continua visível */
-setTimeout(function(){
-  if (!document.documentElement.dataset.albumReady) document.documentElement.classList.remove('js');
-}, 2500);
-</script>
-<noscript><style>.reveal{opacity:1!important;translate:none!important}</style></noscript>
+  <link rel="stylesheet" href="style.css">
+  <script>
+    document.documentElement.classList.add('js');
+    /* segurança: se o script.js não carregar, o álbum continua visível */
+    setTimeout(function () {
+      if (!document.documentElement.dataset.albumReady) document.documentElement.classList.remove('js');
+    }, 2500);
+  </script>
+  <noscript>
+    <style>
+      .reveal {
+        opacity: 1 !important;
+        translate: none !important
+      }
+    </style>
+  </noscript>
 </head>
 
 <body id="topo">
 
-<div class="progress" aria-hidden="true"><span class="progress__bar" id="progressBar"></span></div>
+  <div class="progress" aria-hidden="true"><span class="progress__bar" id="progressBar"></span></div>
 
-<!-- ============================ NAV PRINCIPAL ============================ -->
-<nav class="main-nav" aria-label="Navegar pelo álbum">
-  <div class="container nav__inner">
-    <a class="nav__brand" href="#topo">Fotos entre Amigos</a>
-    <ul class="nav-list">
-      <li><a href="#album" class="nav-link is-active" data-nav="fotos">Fotos</a></li>
-      <li><a href="#videos" class="nav-link" data-nav="videos">Vídeos</a></li>
-      <li><a href="#reservados" class="nav-link" data-nav="espacos">Espaços</a></li>
-    </ul>
-    <div class="nav-search" role="search">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
-      <input type="search" id="busca" placeholder="Buscar foto ou vídeo…" aria-label="Buscar foto ou vídeo" autocomplete="off">
-      <button type="button" id="buscaLimpar" aria-label="Limpar busca" hidden>✕</button>
-    </div>
-  </div>
-</nav>
-<!-- /NAV PRINCIPAL -->
-
-<!-- ============================ HERO ============================ -->
-<header class="hero">
-  <div class="hero__glow" aria-hidden="true"></div>
-
-  <!-- Banner com faixas suaves de cor -->
-  <svg class="hero__flags" aria-hidden="true" viewBox="0 0 1200 400" preserveAspectRatio="xMidYMid slice">
-    <defs>
-      <pattern id="waveA" width="200" height="200" patternUnits="userSpaceOnUse" patternTransform="rotate(18)">
-        <rect width="200" height="66" fill="#111"/>
-        <rect y="66" width="200" height="68" fill="#fff"/>
-        <rect y="134" width="200" height="66" fill="#0d80bf"/>
-      </pattern>
-      <pattern id="waveB" width="220" height="220" patternUnits="userSpaceOnUse" patternTransform="rotate(-12)">
-        <rect width="220" height="55" fill="#e30613"/>
-        <rect y="55" width="220" height="110" fill="#fff"/>
-        <rect y="165" width="220" height="55" fill="#111"/>
-      </pattern>
-      <pattern id="waveC" width="180" height="180" patternUnits="userSpaceOnUse" patternTransform="rotate(8)">
-        <rect width="180" height="60" fill="#006437"/>
-        <rect y="60" width="180" height="60" fill="#fff"/>
-        <rect y="120" width="180" height="60" fill="#006437"/>
-      </pattern>
-    </defs>
-    <rect width="1200" height="400" fill="url(#waveA)" opacity=".10"/>
-    <rect width="1200" height="400" fill="url(#waveB)" opacity=".08" transform="translate(60,30)"/>
-    <rect width="1200" height="400" fill="url(#waveC)" opacity=".10" transform="translate(-40,60)"/>
-  </svg>
-
-  <div class="container">
-    <p class="eyebrow"><span class="eyebrow__dot"></span>Álbum digital · 2026</p>
-
-    <h1 class="hero__title">Fotos<br><em>entre Amigos</em></h1>
-
-    <p class="hero__lede">Risadas que não se repetem, viagens que a gente contou mil vezes e os dias mais simples — guardados todos aqui, num só lugar.</p>
-
-    <div class="hero__stats">
-      <div class="stat">
-        <span class="stat__num" id="statPhotos">0</span>
-        <span class="stat__label">fotos</span>
-      </div>
-      <span class="stat__sep" aria-hidden="true"></span>
-      <div class="stat">
-        <span class="stat__num" id="statMeetings">0</span>
-        <span class="stat__label">coleções</span>
-      </div>
-      <span class="stat__sep" aria-hidden="true"></span>
-      <div class="stat">
-        <span class="stat__num" id="statVideos">0</span>
-        <span class="stat__label">vídeos</span>
-      </div>
-      <span class="stat__sep" aria-hidden="true"></span>
-      <div class="stat">
-        <span class="stat__num" id="statFree">120</span>
-        <span class="stat__label">espaços livres</span>
+  <!-- ============================ NAV PRINCIPAL ============================ -->
+  <nav class="main-nav" aria-label="Navegar pelo álbum">
+    <div class="container nav__inner">
+      <a class="nav__brand" href="#topo">Fotos entre Amigos</a>
+      <ul class="nav-list">
+        <li><a href="#album" class="nav-link is-active" data-nav="fotos">Fotos</a></li>
+        <li><a href="#videos" class="nav-link" data-nav="videos">Vídeos</a></li>
+        <li><a href="#reservados" class="nav-link" data-nav="espacos">Espaços</a></li>
+      </ul>
+      <div class="nav-search" role="search">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+          aria-hidden="true">
+          <circle cx="11" cy="11" r="7" />
+          <path d="m20 20-3.5-3.5" />
+        </svg>
+        <input type="search" id="busca" placeholder="Buscar foto ou vídeo…" aria-label="Buscar foto ou vídeo"
+          autocomplete="off">
+        <button type="button" id="buscaLimpar" aria-label="Limpar busca" hidden>✕</button>
       </div>
     </div>
+  </nav>
+  <!-- /NAV PRINCIPAL -->
 
-    <div class="hero__actions">
-      <a class="btn btn--primary" href="#album">
-        Ver o álbum
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-      </a>
-      <button class="btn btn--secondary" type="button" data-add>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
-        Adicionar fotos
-      </button>
-    </div>
-  </div>
-</header>
-<main>
+  <!-- ============================ HERO ============================ -->
+  <header class="hero">
+    <div class="hero__glow" aria-hidden="true"></div>
 
-  <!-- ============================ ÁLBUM ============================ -->
-  <section class="section" id="album">
+    <!-- Banner com faixas suaves de cor -->
+    <svg class="hero__flags" aria-hidden="true" viewBox="0 0 1200 400" preserveAspectRatio="xMidYMid slice">
+      <defs>
+        <pattern id="waveA" width="200" height="200" patternUnits="userSpaceOnUse" patternTransform="rotate(18)">
+          <rect width="200" height="66" fill="#111" />
+          <rect y="66" width="200" height="68" fill="#fff" />
+          <rect y="134" width="200" height="66" fill="#0d80bf" />
+        </pattern>
+        <pattern id="waveB" width="220" height="220" patternUnits="userSpaceOnUse" patternTransform="rotate(-12)">
+          <rect width="220" height="55" fill="#e30613" />
+          <rect y="55" width="220" height="110" fill="#fff" />
+          <rect y="165" width="220" height="55" fill="#111" />
+        </pattern>
+        <pattern id="waveC" width="180" height="180" patternUnits="userSpaceOnUse" patternTransform="rotate(8)">
+          <rect width="180" height="60" fill="#006437" />
+          <rect y="60" width="180" height="60" fill="#fff" />
+          <rect y="120" width="180" height="60" fill="#006437" />
+        </pattern>
+      </defs>
+      <rect width="1200" height="400" fill="url(#waveA)" opacity=".10" />
+      <rect width="1200" height="400" fill="url(#waveB)" opacity=".08" transform="translate(60,30)" />
+      <rect width="1200" height="400" fill="url(#waveC)" opacity=".10" transform="translate(-40,60)" />
+    </svg>
+
     <div class="container">
+      <p class="eyebrow"><span class="eyebrow__dot"></span>Álbum digital · 2026</p>
 
-      <div class="section__head">
-        <div>
-          <p class="eyebrow"><span class="eyebrow__dot"></span>O álbum</p>
-          <h2 class="section__title">Todas as fotos</h2>
+      <h1 class="hero__title">Fotos<br><em>entre Amigos</em></h1>
+
+      <p class="hero__lede">Risadas que não se repetem, viagens que a gente contou mil vezes e os dias mais simples —
+        guardados todos aqui, num só lugar.</p>
+
+      <div class="hero__stats">
+        <div class="stat">
+          <span class="stat__num" id="statPhotos">0</span>
+          <span class="stat__label">fotos</span>
         </div>
-
-        <div class="filters" role="group" aria-label="Filtrar fotos por coleção">
-          <button class="chip is-active" type="button" data-filter="all">Todas <span data-count="all">0</span></button>
-          <button class="chip" type="button" data-filter="viagens">Viagens <span data-count="viagens">0</span></button>
-          <button class="chip" type="button" data-filter="momentos">Momentos <span data-count="momentos">0</span></button>
-          <button class="chip" type="button" data-filter="memorias">Memórias <span data-count="memorias">0</span></button>
+        <span class="stat__sep" aria-hidden="true"></span>
+        <div class="stat">
+          <span class="stat__num" id="statMeetings">0</span>
+          <span class="stat__label">coleções</span>
+        </div>
+        <span class="stat__sep" aria-hidden="true"></span>
+        <div class="stat">
+          <span class="stat__num" id="statVideos">0</span>
+          <span class="stat__label">vídeos</span>
+        </div>
+        <span class="stat__sep" aria-hidden="true"></span>
+        <div class="stat">
+          <span class="stat__num" id="statFree">120</span>
+          <span class="stat__label">espaços livres</span>
         </div>
       </div>
 
-      <p class="count" id="count">Carregando...</p>
-
-      <div class="gallery" id="gallery">
-        <!-- Fotos serão inseridas dinamicamente pelo JavaScript -->
+      <div class="hero__actions">
+        <a class="btn btn--primary" href="#album">
+          Ver o álbum
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+            stroke-linejoin="round" aria-hidden="true">
+            <path d="M5 12h14M13 6l6 6-6 6" />
+          </svg>
+        </a>
+        <button class="btn btn--secondary" type="button" data-add>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+            stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 5v14M5 12h14" />
+          </svg>
+          Adicionar fotos
+        </button>
       </div>
+    </div>
+  </header>
+  <main>
 
-      <div class="empty" id="empty" hidden>Nenhuma foto encontrada.</div>
+    <!-- ============================ ÁLBUM ============================ -->
+    <section class="section" id="album">
+      <div class="container">
 
-      <!-- Espaços reservados -->
-      <section class="section section--reserved" id="reservados" aria-labelledby="reservadosTitle">
-        <div class="container">
-          <div class="section__head">
-            <div>
-              <p class="eyebrow"><span class="eyebrow__dot"></span>Espaços</p>
-              <h2 class="section__title" id="reservadosTitle">Espaços livres no álbum</h2>
+        <div class="section__head">
+          <div>
+            <p class="eyebrow"><span class="eyebrow__dot"></span>O álbum</p>
+            <h2 class="section__title">Todas as fotos</h2>
+          </div>
+
+          <div class="filters" role="group" aria-label="Filtrar fotos por coleção">
+            <button class="chip is-active" type="button" data-filter="all">Todas <span
+                data-count="all">0</span></button>
+            <button class="chip" type="button" data-filter="fotos">Fotos<span
+                data-count="fotos">0</span></button>
+            <button class="chip" type="button" data-filter="momentos">Momentos <span
+                data-count="momentos">0</span></button>
+            <button class="chip" type="button" data-filter="memorias">Memórias <span
+                data-count="memorias">0</span></button>
+          </div>
+        </div>
+
+        <p class="count" id="count">Carregando...</p>
+
+        <div class="gallery" id="gallery">
+          <!-- Fotos serão inseridas dinamicamente pelo JavaScript -->
+        </div>
+
+        <div class="empty" id="empty" hidden>Nenhuma foto encontrada.</div>
+
+        <!-- Espaços reservados -->
+        <section class="section section--reserved" id="reservados" aria-labelledby="reservadosTitle">
+          <div class="container">
+            <div class="section__head">
+              <div>
+                <p class="eyebrow"><span class="eyebrow__dot"></span>Espaços</p>
+                <h2 class="section__title" id="reservadosTitle">Espaços livres no álbum</h2>
+              </div>
+            </div>
+            <p class="section__note">O álbum tem capacidade para <strong>120 fotos</strong>. Adicione mais memórias
+              clicando nos espaços vazios ou no botão "Adicionar fotos".</p>
+
+            <div class="gallery gallery--reserved" id="reserved" role="list"
+              aria-label="Espaços livres para novas fotos"></div>
+
+            <p class="empty" id="reservedFull" hidden>Álbum completo! Todos os 120 espaços estão preenchidos.</p>
+            <p id="reservedCount" class="count"></p>
+          </div>
+        </section>
+
+      </div>
+    </section>
+
+    <!-- ============================ VÍDEOS ============================ -->
+    <section class="section section--videos" id="videos" aria-labelledby="videosTitle">
+      <div class="container">
+        <div class="section__head">
+          <div>
+            <p class="eyebrow"><span class="eyebrow__dot"></span>Vídeos</p>
+            <h2 class="section__title" id="videosTitle">Momentos em movimento</h2>
+          </div>
+          <div class="video-form">
+            <label class="video-form__label" for="videoInput">Adicionar vídeo</label>
+            <div class="video-form__row">
+              <button class="btn btn--secondary" type="button" data-add-video>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                  stroke-linejoin="round" aria-hidden="true">
+                  <path d="M12 5v14M5 12h14" />
+                </svg>
+                Escolher arquivo
+              </button>
+              <input type="file" id="videoInput" accept="video/*" hidden multiple>
+              <p class="video-form__hint">Suporta <strong>MP4, MOV</strong> · Limite recomendado: <strong>100
+                  MB</strong> por arquivo</p>
             </div>
           </div>
-          <p class="section__note">O álbum tem capacidade para <strong>120 fotos</strong>. Adicione mais memórias clicando nos espaços vazios ou no botão "Adicionar fotos".</p>
-
-          <div class="gallery gallery--reserved" id="reserved" role="list" aria-label="Espaços livres para novas fotos"></div>
-
-          <p class="empty" id="reservedFull" hidden>Álbum completo! Todos os 120 espaços estão preenchidos.</p>
-          <p id="reservedCount" class="count"></p>
         </div>
-      </section>
 
-    </div>
-  </section>
+        <p id="videoCount" class="count">Carregando...</p>
 
-  <!-- ============================ VÍDEOS ============================ -->
-  <section class="section section--videos" id="videos" aria-labelledby="videosTitle">
-    <div class="container">
-      <div class="section__head">
-        <div>
-          <p class="eyebrow"><span class="eyebrow__dot"></span>Vídeos</p>
-          <h2 class="section__title" id="videosTitle">Momentos em movimento</h2>
-        </div>
-        <div class="video-form">
-          <label class="video-form__label" for="videoInput">Adicionar vídeo</label>
-          <div class="video-form__row">
-            <button class="btn btn--secondary" type="button" data-add-video>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
-              Escolher arquivo
-            </button>
-            <input type="file" id="videoInput" accept="video/*" hidden multiple>
-            <p class="video-form__hint">Suporta <strong>MP4, MOV</strong> · Limite recomendado: <strong>100 MB</strong> por arquivo</p>
-          </div>
-        </div>
+        <div class="video-gallery" id="videoGallery" role="list" aria-label="Vídeos do álbum"></div>
+
+        <div class="empty" id="videoEmpty">Nenhum vídeo ainda. Adicione seu primeiro vídeo acima!</div>
       </div>
+    </section>
 
-      <p id="videoCount" class="count">Carregando...</p>
+  </main>
 
-      <div class="video-gallery" id="videoGallery" role="list" aria-label="Vídeos do álbum"></div>
-
-      <div class="empty" id="videoEmpty">Nenhum vídeo ainda. Adicione seu primeiro vídeo acima!</div>
+  <!-- ============================ RODAPÉ ============================ -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p>&copy; 2026 Fotos entre Amigos. Feito com carinho.</p>
+      <p id="footerCount">0 fotos · 120 espaços no total</p>
     </div>
-  </section>
+  </footer>
 
-</main>
-
-<!-- ============================ RODAPÉ ============================ -->
-<footer class="footer">
-  <div class="container footer__inner">
-    <p>&copy; 2026 Fotos entre Amigos. Feito com carinho.</p>
-    <p id="footerCount">0 fotos · 120 espaços no total</p>
-  </div>
-</footer>
-
-<!-- ============================ VOLTAR AO TOPO ============================ -->
-<button class="to-top" id="toTop" aria-label="Voltar ao topo" hidden>
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 15l-6-6-6 6"/></svg>
-</button>
-
-<!-- ============================ LIGHTBOX ============================ -->
-<div class="lightbox" id="lightbox" hidden role="dialog" aria-modal="true" aria-label="Visualização ampliada">
-  <div class="lb-bar">
-    <div class="lb-counter" id="lbCounter">1 / 1</div>
-    <button class="lb-btn lb-play" id="lbPlay" type="button" aria-label="Apresentação automática" aria-pressed="false">
-      <svg class="lb-play__play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
-      <svg class="lb-play__pause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" hidden><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
-    </button>
-    <button class="lb-btn" id="lbClose" type="button" aria-label="Fechar">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6L6 18M6 6l12 12"/></svg>
-    </button>
-  </div>
-
-  <button class="lb-nav lb-nav--prev" id="lbPrev" type="button" aria-label="Anterior">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+  <!-- ============================ VOLTAR AO TOPO ============================ -->
+  <button class="to-top" id="toTop" aria-label="Voltar ao topo" hidden>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+      stroke-linejoin="round" aria-hidden="true">
+      <path d="M18 15l-6-6-6 6" />
+    </svg>
   </button>
 
-  <div class="lightbox__stage" id="lbStage">
-    <img class="lightbox__img" id="lbImg" alt="" hidden>
-    <video class="lightbox__video" id="lbVideo" controls playsinline hidden></video>
-    <p class="lightbox__caption" id="lbDate"></p>
+  <!-- ============================ LIGHTBOX ============================ -->
+  <div class="lightbox" id="lightbox" hidden role="dialog" aria-modal="true" aria-label="Visualização ampliada">
+    <div class="lb-bar">
+      <div class="lb-counter" id="lbCounter">1 / 1</div>
+      <button class="lb-btn lb-play" id="lbPlay" type="button" aria-label="Apresentação automática"
+        aria-pressed="false">
+        <svg class="lb-play__play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M8 5v14l11-7z" />
+        </svg>
+        <svg class="lb-play__pause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" hidden>
+          <rect x="6" y="4" width="4" height="16" />
+          <rect x="14" y="4" width="4" height="16" />
+        </svg>
+      </button>
+      <button class="lb-btn" id="lbClose" type="button" aria-label="Fechar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+          stroke-linejoin="round" aria-hidden="true">
+          <path d="M18 6L6 18M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+
+    <button class="lb-nav lb-nav--prev" id="lbPrev" type="button" aria-label="Anterior">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+        stroke-linejoin="round" aria-hidden="true">
+        <path d="M15 18l-6-6 6-6" />
+      </svg>
+    </button>
+
+    <div class="lightbox__stage" id="lbStage">
+      <img class="lightbox__img" id="lbImg" alt="" hidden>
+      <video class="lightbox__video" id="lbVideo" controls playsinline hidden></video>
+      <p class="lightbox__caption" id="lbDate"></p>
+    </div>
+
+    <button class="lb-nav lb-nav--next" id="lbNext" type="button" aria-label="Próxima">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+        stroke-linejoin="round" aria-hidden="true">
+        <path d="M9 6l6 6-6 6" />
+      </svg>
+    </button>
+
+    <div class="lb-thumbs" id="lbThumbs" role="tablist" aria-label="Miniaturas"></div>
   </div>
 
-  <button class="lb-nav lb-nav--next" id="lbNext" type="button" aria-label="Próxima">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
-  </button>
-
-  <div class="lb-thumbs" id="lbThumbs" role="tablist" aria-label="Miniaturas"></div>
-</div>
-
-<!-- ============================ DRAG & DROP ============================ -->
-<div class="dropzone" id="dropzone" aria-hidden="true">
-  <div class="dropzone__box">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
-    <p>Solte as fotos ou vídeos aqui</p>
+  <!-- ============================ DRAG & DROP ============================ -->
+  <div class="dropzone" id="dropzone" aria-hidden="true">
+    <div class="dropzone__box">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+        stroke-linejoin="round" aria-hidden="true">
+        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3" />
+      </svg>
+      <p>Solte as fotos ou vídeos aqui</p>
+    </div>
   </div>
-</div>
 
-<!-- ============================ TOAST ============================ -->
-<div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+  <!-- ============================ TOAST ============================ -->
+  <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
 
-<!-- ============================ INPUTS OCULTOS ============================ -->
-<input type="file" id="fileInput" accept="image/*" hidden multiple>
+  <!-- ============================ INPUTS OCULTOS ============================ -->
+  <input type="file" id="fileInput" accept="image/*" hidden multiple>
 
-<!-- ============================ SCRIPTS ============================ -->
-<script src="data.js"></script>
-<script src="script.js"></script>
+  <!-- ============================ SCRIPTS ============================ -->
+  <script src="data.js"></script>
+  <script src="script.js"></script>
 </body>
+
 </html>
