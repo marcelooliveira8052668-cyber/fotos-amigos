@@ -7,6 +7,7 @@
   var TOTAL_SLOTS = 120;               // tamanho total do álbum
   var LABELS = {
     all: 'Todas',
+    julho: 'Julho',
     setembro: 'Setembro',
     outubro: 'Outubro',
     novas: 'Adicionadas'
