@@ -28,7 +28,7 @@ setTimeout(function(){
 <noscript><style>.reveal{opacity:1!important;translate:none!important}</style></noscript>
 </head>
 
-<body>
+<body id="topo">
 
 <div class="progress" aria-hidden="true"><span class="progress__bar" id="progressBar"></span></div>
 
@@ -77,6 +77,19 @@ setTimeout(function(){
     </div>
   </div>
 </header>
+    <!-- ============================ NAV PRINCIPAL ============================ -->
+    <nav class="main-nav" aria-label="Navegar pelo álbum">
+      <div class="container nav__inner">
+        <a class="nav__brand" href="#topo">Álbum digital</a>
+        <ul class="nav-list">
+          <li><a href="#album" class="nav-link">Fotos</a></li>
+          <li><a href="#videos" class="nav-link">Vídeos</a></li>
+          <li><a href="#reservados" class="nav-link">Espaços</a></li>
+        </ul>
+      </div>
+    </nav>
+    <!-- /NAV PRINCIPAL -->
+
 
 <main>
 
@@ -103,269 +116,743 @@ setTimeout(function(){
       <div class="gallery" id="gallery">
 
                 <figure class="photo-card reveal" data-collection="setembro" data-date="18 de setembro de 2026">
-          <button class="photo-card__open" type="button" aria-label="Ampliar foto 1 de 38">
+          <button class="photo-card__open" type="button" aria-label="Ampliar foto 1 de 39">
             <img src="fotos/foto-01.jpeg" alt="Foto 1 do álbum — 18 de setembro de 2026" width="1600" height="1200" decoding="async">
             <span class="photo-card__meta"><span class="photo-card__date">18 de setembro de 2026</span><span class="photo-card__zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></span></span>
           </button>
+      <div class="photo-interaction">
+        <button class="like-btn" type="button" data-foto="foto-01.jpeg" aria-label="Curtir foto">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.69l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.27 1.27a5.5 5.5 0 0 0 7.78 0l1.27-1.27L12 21.25l7.73-7.73a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          <span class="like-count">0</span>
+        </button>
+        <div class="comment-row">
+          <input class="comment-text" type="text" placeholder="Deixe um comentário..." data-foto="foto-01.jpeg" aria-label="Escrever comentário">
+          <button class="comment-btn" type="button" data-foto="foto-01.jpeg">Enviar</button>
+        </div>
+        <p class="comment-count" id="comment-count-foto-01.jpeg">0 comentários</p>
+        <ul class="comment-list" id="comment-list-foto-01.jpeg"></ul>
+      </div>
         </figure>
 
         <figure class="photo-card reveal" data-collection="setembro" data-date="18 de setembro de 2026">
-          <button class="photo-card__open" type="button" aria-label="Ampliar foto 2 de 38">
+          <button class="photo-card__open" type="button" aria-label="Ampliar foto 2 de 39">
             <img src="fotos/foto-02.jpeg" alt="Foto 2 do álbum — 18 de setembro de 2026" width="1600" height="1200" loading="lazy" decoding="async">
             <span class="photo-card__meta"><span class="photo-card__date">18 de setembro de 2026</span><span class="photo-card__zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></span></span>
           </button>
+      <div class="photo-interaction">
+        <button class="like-btn" type="button" data-foto="foto-02.jpeg" aria-label="Curtir foto">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.69l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.27 1.27a5.5 5.5 0 0 0 7.78 0l1.27-1.27L12 21.25l7.73-7.73a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          <span class="like-count">0</span>
+        </button>
+        <div class="comment-row">
+          <input class="comment-text" type="text" placeholder="Deixe um comentário..." data-foto="foto-02.jpeg" aria-label="Escrever comentário">
+          <button class="comment-btn" type="button" data-foto="foto-02.jpeg">Enviar</button>
+        </div>
+        <p class="comment-count" id="comment-count-foto-02.jpeg">0 comentários</p>
+        <ul class="comment-list" id="comment-list-foto-02.jpeg"></ul>
+      </div>
         </figure>
 
         <figure class="photo-card reveal" data-collection="setembro" data-date="18 de setembro de 2026">
-          <button class="photo-card__open" type="button" aria-label="Ampliar foto 3 de 38">
+          <button class="photo-card__open" type="button" aria-label="Ampliar foto 3 de 39">
             <img src="fotos/foto-03.jpeg" alt="Foto 3 do álbum — 18 de setembro de 2026" width="1600" height="1200" loading="lazy" decoding="async">
             <span class="photo-card__meta"><span class="photo-card__date">18 de setembro de 2026</span><span class="photo-card__zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></span></span>
           </button>
+      <div class="photo-interaction">
+        <button class="like-btn" type="button" data-foto="foto-03.jpeg" aria-label="Curtir foto">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.69l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.27 1.27a5.5 5.5 0 0 0 7.78 0l1.27-1.27L12 21.25l7.73-7.73a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          <span class="like-count">0</span>
+        </button>
+        <div class="comment-row">
+          <input class="comment-text" type="text" placeholder="Deixe um comentário..." data-foto="foto-03.jpeg" aria-label="Escrever comentário">
+          <button class="comment-btn" type="button" data-foto="foto-03.jpeg">Enviar</button>
+        </div>
+        <p class="comment-count" id="comment-count-foto-03.jpeg">0 comentários</p>
+        <ul class="comment-list" id="comment-list-foto-03.jpeg"></ul>
+      </div>
         </figure>
 
         <figure class="photo-card reveal" data-collection="setembro" data-date="18 de setembro de 2026">
-          <button class="photo-card__open" type="button" aria-label="Ampliar foto 4 de 38">
+          <button class="photo-card__open" type="button" aria-label="Ampliar foto 4 de 39">
             <img src="fotos/foto-04.jpeg" alt="Foto 4 do álbum — 18 de setembro de 2026" width="1600" height="1200" loading="lazy" decoding="async">
             <span class="photo-card__meta"><span class="photo-card__date">18 de setembro de 2026</span><span class="photo-card__zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></span></span>
           </button>
+      <div class="photo-interaction">
+        <button class="like-btn" type="button" data-foto="foto-04.jpeg" aria-label="Curtir foto">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.69l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.27 1.27a5.5 5.5 0 0 0 7.78 0l1.27-1.27L12 21.25l7.73-7.73a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          <span class="like-count">0</span>
+        </button>
+        <div class="comment-row">
+          <input class="comment-text" type="text" placeholder="Deixe um comentário..." data-foto="foto-04.jpeg" aria-label="Escrever comentário">
+          <button class="comment-btn" type="button" data-foto="foto-04.jpeg">Enviar</button>
+        </div>
+        <p class="comment-count" id="comment-count-foto-04.jpeg">0 comentários</p>
+        <ul class="comment-list" id="comment-list-foto-04.jpeg"></ul>
+      </div>
         </figure>
 
         <figure class="photo-card reveal" data-collection="setembro" data-date="18 de setembro de 2026">
-          <button class="photo-card__open" type="button" aria-label="Ampliar foto 5 de 38">
+          <button class="photo-card__open" type="button" aria-label="Ampliar foto 5 de 39">
             <img src="fotos/foto-05.jpeg" alt="Foto 5 do álbum — 18 de setembro de 2026" width="1600" height="1200" loading="lazy" decoding="async">
             <span class="photo-card__meta"><span class="photo-card__date">18 de setembro de 2026</span><span class="photo-card__zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></span></span>
           </button>
+      <div class="photo-interaction">
+        <button class="like-btn" type="button" data-foto="foto-05.jpeg" aria-label="Curtir foto">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.69l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.27 1.27a5.5 5.5 0 0 0 7.78 0l1.27-1.27L12 21.25l7.73-7.73a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          <span class="like-count">0</span>
+        </button>
+        <div class="comment-row">
+          <input class="comment-text" type="text" placeholder="Deixe um comentário..." data-foto="foto-05.jpeg" aria-label="Escrever comentário">
+          <button class="comment-btn" type="button" data-foto="foto-05.jpeg">Enviar</button>
+        </div>
+        <p class="comment-count" id="comment-count-foto-05.jpeg">0 comentários</p>
+        <ul class="comment-list" id="comment-list-foto-05.jpeg"></ul>
+      </div>
         </figure>
 
         <figure class="photo-card reveal" data-collection="setembro" data-date="18 de setembro de 2026">
-          <button class="photo-card__open" type="button" aria-label="Ampliar foto 6 de 38">
+          <button class="photo-card__open" type="button" aria-label="Ampliar foto 6 de 39">
             <img src="fotos/foto-06.jpeg" alt="Foto 6 do álbum — 18 de setembro de 2026" width="960" height="1151" loading="lazy" decoding="async">
             <span class="photo-card__meta"><span class="photo-card__date">18 de setembro de 2026</span><span class="photo-card__zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></span></span>
           </button>
+      <div class="photo-interaction">
+        <button class="like-btn" type="button" data-foto="foto-06.jpeg" aria-label="Curtir foto">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.69l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.27 1.27a5.5 5.5 0 0 0 7.78 0l1.27-1.27L12 21.25l7.73-7.73a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          <span class="like-count">0</span>
+        </button>
+        <div class="comment-row">
+          <input class="comment-text" type="text" placeholder="Deixe um comentário..." data-foto="foto-06.jpeg" aria-label="Escrever comentário">
+          <button class="comment-btn" type="button" data-foto="foto-06.jpeg">Enviar</button>
+        </div>
+        <p class="comment-count" id="comment-count-foto-06.jpeg">0 comentários</p>
+        <ul class="comment-list" id="comment-list-foto-06.jpeg"></ul>
+      </div>
         </figure>
 
         <figure class="photo-card reveal" data-collection="setembro" data-date="18 de setembro de 2026">
-          <button class="photo-card__open" type="button" aria-label="Ampliar foto 7 de 38">
+          <button class="photo-card__open" type="button" aria-label="Ampliar foto 7 de 39">
             <img src="fotos/foto-07.jpeg" alt="Foto 7 do álbum — 18 de setembro de 2026" width="900" height="1600" loading="lazy" decoding="async">
             <span class="photo-card__meta"><span class="photo-card__date">18 de setembro de 2026</span><span class="photo-card__zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></span></span>
           </button>
+      <div class="photo-interaction">
+        <button class="like-btn" type="button" data-foto="foto-07.jpeg" aria-label="Curtir foto">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.69l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.27 1.27a5.5 5.5 0 0 0 7.78 0l1.27-1.27L12 21.25l7.73-7.73a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          <span class="like-count">0</span>
+        </button>
+        <div class="comment-row">
+          <input class="comment-text" type="text" placeholder="Deixe um comentário..." data-foto="foto-07.jpeg" aria-label="Escrever comentário">
+          <button class="comment-btn" type="button" data-foto="foto-07.jpeg">Enviar</button>
+        </div>
+        <p class="comment-count" id="comment-count-foto-07.jpeg">0 comentários</p>
+        <ul class="comment-list" id="comment-list-foto-07.jpeg"></ul>
+      </div>
         </figure>
 
         <figure class="photo-card reveal" data-collection="setembro" data-date="18 de setembro de 2026">
-          <button class="photo-card__open" type="button" aria-label="Ampliar foto 8 de 38">
+          <button class="photo-card__open" type="button" aria-label="Ampliar foto 8 de 39">
             <img src="fotos/foto-08.jpeg" alt="Foto 8 do álbum — 18 de setembro de 2026" width="1600" height="1200" loading="lazy" decoding="async">
             <span class="photo-card__meta"><span class="photo-card__date">18 de setembro de 2026</span><span class="photo-card__zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></span></span>
           </button>
+      <div class="photo-interaction">
+        <button class="like-btn" type="button" data-foto="foto-08.jpeg" aria-label="Curtir foto">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.69l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.27 1.27a5.5 5.5 0 0 0 7.78 0l1.27-1.27L12 21.25l7.73-7.73a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          <span class="like-count">0</span>
+        </button>
+        <div class="comment-row">
+          <input class="comment-text" type="text" placeholder="Deixe um comentário..." data-foto="foto-08.jpeg" aria-label="Escrever comentário">
+          <button class="comment-btn" type="button" data-foto="foto-08.jpeg">Enviar</button>
+        </div>
+        <p class="comment-count" id="comment-count-foto-08.jpeg">0 comentários</p>
+        <ul class="comment-list" id="comment-list-foto-08.jpeg"></ul>
+      </div>
         </figure>
 
         <figure class="photo-card reveal" data-collection="setembro" data-date="18 de setembro de 2026">
-          <button class="photo-card__open" type="button" aria-label="Ampliar foto 9 de 38">
+          <button class="photo-card__open" type="button" aria-label="Ampliar foto 9 de 39">
             <img src="fotos/foto-09.jpeg" alt="Foto 9 do álbum — 18 de setembro de 2026" width="1600" height="900" loading="lazy" decoding="async">
             <span class="photo-card__meta"><span class="photo-card__date">18 de setembro de 2026</span><span class="photo-card__zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></span></span>
           </button>
+      <div class="photo-interaction">
+        <button class="like-btn" type="button" data-foto="foto-09.jpeg" aria-label="Curtir foto">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.69l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.27 1.27a5.5 5.5 0 0 0 7.78 0l1.27-1.27L12 21.25l7.73-7.73a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          <span class="like-count">0</span>
+        </button>
+        <div class="comment-row">
+          <input class="comment-text" type="text" placeholder="Deixe um comentário..." data-foto="foto-09.jpeg" aria-label="Escrever comentário">
+          <button class="comment-btn" type="button" data-foto="foto-09.jpeg">Enviar</button>
+        </div>
+        <p class="comment-count" id="comment-count-foto-09.jpeg">0 comentários</p>
+        <ul class="comment-list" id="comment-list-foto-09.jpeg"></ul>
+      </div>
         </figure>
 
         <figure class="photo-card reveal" data-collection="setembro" data-date="18 de setembro de 2026">
-          <button class="photo-card__open" type="button" aria-label="Ampliar foto 10 de 38">
+          <button class="photo-card__open" type="button" aria-label="Ampliar foto 10 de 39">
             <img src="fotos/foto-10.jpeg" alt="Foto 10 do álbum — 18 de setembro de 2026" width="864" height="1080" loading="lazy" decoding="async">
             <span class="photo-card__meta"><span class="photo-card__date">18 de setembro de 2026</span><span class="photo-card__zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></span></span>
           </button>
+      <div class="photo-interaction">
+        <button class="like-btn" type="button" data-foto="foto-10.jpeg" aria-label="Curtir foto">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.69l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.27 1.27a5.5 5.5 0 0 0 7.78 0l1.27-1.27L12 21.25l7.73-7.73a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          <span class="like-count">0</span>
+        </button>
+        <div class="comment-row">
+          <input class="comment-text" type="text" placeholder="Deixe um comentário..." data-foto="foto-10.jpeg" aria-label="Escrever comentário">
+          <button class="comment-btn" type="button" data-foto="foto-10.jpeg">Enviar</button>
+        </div>
+        <p class="comment-count" id="comment-count-foto-10.jpeg">0 comentários</p>
+        <ul class="comment-list" id="comment-list-foto-10.jpeg"></ul>
+      </div>
         </figure>
 
         <figure class="photo-card reveal" data-collection="setembro" data-date="18 de setembro de 2026">
-          <button class="photo-card__open" type="button" aria-label="Ampliar foto 11 de 38">
+          <button class="photo-card__open" type="button" aria-label="Ampliar foto 11 de 39">
             <img src="fotos/foto-11.jpeg" alt="Foto 11 do álbum — 18 de setembro de 2026" width="1600" height="1200" loading="lazy" decoding="async">
             <span class="photo-card__meta"><span class="photo-card__date">18 de setembro de 2026</span><span class="photo-card__zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></span></span>
           </button>
+      <div class="photo-interaction">
+        <button class="like-btn" type="button" data-foto="foto-11.jpeg" aria-label="Curtir foto">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.69l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.27 1.27a5.5 5.5 0 0 0 7.78 0l1.27-1.27L12 21.25l7.73-7.73a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          <span class="like-count">0</span>
+        </button>
+        <div class="comment-row">
+          <input class="comment-text" type="text" placeholder="Deixe um comentário..." data-foto="foto-11.jpeg" aria-label="Escrever comentário">
+          <button class="comment-btn" type="button" data-foto="foto-11.jpeg">Enviar</button>
+        </div>
+        <p class="comment-count" id="comment-count-foto-11.jpeg">0 comentários</p>
+        <ul class="comment-list" id="comment-list-foto-11.jpeg"></ul>
+      </div>
         </figure>
 
         <figure class="photo-card reveal" data-collection="outubro" data-date="6 de outubro de 2026">
-          <button class="photo-card__open" type="button" aria-label="Ampliar foto 12 de 38">
+          <button class="photo-card__open" type="button" aria-label="Ampliar foto 12 de 39">
             <img src="fotos/foto-12.jpeg" alt="Foto 12 do álbum — 6 de outubro de 2026" width="1280" height="720" loading="lazy" decoding="async">
             <span class="photo-card__meta"><span class="photo-card__date">6 de outubro de 2026</span><span class="photo-card__zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></span></span>
           </button>
+      <div class="photo-interaction">
+        <button class="like-btn" type="button" data-foto="foto-12.jpeg" aria-label="Curtir foto">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.69l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.27 1.27a5.5 5.5 0 0 0 7.78 0l1.27-1.27L12 21.25l7.73-7.73a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          <span class="like-count">0</span>
+        </button>
+        <div class="comment-row">
+          <input class="comment-text" type="text" placeholder="Deixe um comentário..." data-foto="foto-12.jpeg" aria-label="Escrever comentário">
+          <button class="comment-btn" type="button" data-foto="foto-12.jpeg">Enviar</button>
+        </div>
+        <p class="comment-count" id="comment-count-foto-12.jpeg">0 comentários</p>
+        <ul class="comment-list" id="comment-list-foto-12.jpeg"></ul>
+      </div>
         </figure>
 
         <figure class="photo-card reveal" data-collection="outubro" data-date="6 de outubro de 2026">
-          <button class="photo-card__open" type="button" aria-label="Ampliar foto 13 de 38">
+          <button class="photo-card__open" type="button" aria-label="Ampliar foto 13 de 39">
             <img src="fotos/foto-13.jpeg" alt="Foto 13 do álbum — 6 de outubro de 2026" width="960" height="1280" loading="lazy" decoding="async">
             <span class="photo-card__meta"><span class="photo-card__date">6 de outubro de 2026</span><span class="photo-card__zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></span></span>
           </button>
+      <div class="photo-interaction">
+        <button class="like-btn" type="button" data-foto="foto-13.jpeg" aria-label="Curtir foto">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.69l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.27 1.27a5.5 5.5 0 0 0 7.78 0l1.27-1.27L12 21.25l7.73-7.73a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          <span class="like-count">0</span>
+        </button>
+        <div class="comment-row">
+          <input class="comment-text" type="text" placeholder="Deixe um comentário..." data-foto="foto-13.jpeg" aria-label="Escrever comentário">
+          <button class="comment-btn" type="button" data-foto="foto-13.jpeg">Enviar</button>
+        </div>
+        <p class="comment-count" id="comment-count-foto-13.jpeg">0 comentários</p>
+        <ul class="comment-list" id="comment-list-foto-13.jpeg"></ul>
+      </div>
         </figure>
 
         <figure class="photo-card reveal" data-collection="outubro" data-date="6 de outubro de 2026">
-          <button class="photo-card__open" type="button" aria-label="Ampliar foto 14 de 38">
+          <button class="photo-card__open" type="button" aria-label="Ampliar foto 14 de 39">
             <img src="fotos/foto-14.jpeg" alt="Foto 14 do álbum — 6 de outubro de 2026" width="1280" height="720" loading="lazy" decoding="async">
             <span class="photo-card__meta"><span class="photo-card__date">6 de outubro de 2026</span><span class="photo-card__zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></span></span>
           </button>
+      <div class="photo-interaction">
+        <button class="like-btn" type="button" data-foto="foto-14.jpeg" aria-label="Curtir foto">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.69l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.27 1.27a5.5 5.5 0 0 0 7.78 0l1.27-1.27L12 21.25l7.73-7.73a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          <span class="like-count">0</span>
+        </button>
+        <div class="comment-row">
+          <input class="comment-text" type="text" placeholder="Deixe um comentário..." data-foto="foto-14.jpeg" aria-label="Escrever comentário">
+          <button class="comment-btn" type="button" data-foto="foto-14.jpeg">Enviar</button>
+        </div>
+        <p class="comment-count" id="comment-count-foto-14.jpeg">0 comentários</p>
+        <ul class="comment-list" id="comment-list-foto-14.jpeg"></ul>
+      </div>
         </figure>
 
         <figure class="photo-card reveal" data-collection="outubro" data-date="6 de outubro de 2026">
-          <button class="photo-card__open" type="button" aria-label="Ampliar foto 15 de 38">
+          <button class="photo-card__open" type="button" aria-label="Ampliar foto 15 de 39">
             <img src="fotos/foto-15.jpeg" alt="Foto 15 do álbum — 6 de outubro de 2026" width="1280" height="720" loading="lazy" decoding="async">
             <span class="photo-card__meta"><span class="photo-card__date">6 de outubro de 2026</span><span class="photo-card__zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></span></span>
           </button>
+      <div class="photo-interaction">
+        <button class="like-btn" type="button" data-foto="foto-15.jpeg" aria-label="Curtir foto">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.69l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.27 1.27a5.5 5.5 0 0 0 7.78 0l1.27-1.27L12 21.25l7.73-7.73a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          <span class="like-count">0</span>
+        </button>
+        <div class="comment-row">
+          <input class="comment-text" type="text" placeholder="Deixe um comentário..." data-foto="foto-15.jpeg" aria-label="Escrever comentário">
+          <button class="comment-btn" type="button" data-foto="foto-15.jpeg">Enviar</button>
+        </div>
+        <p class="comment-count" id="comment-count-foto-15.jpeg">0 comentários</p>
+        <ul class="comment-list" id="comment-list-foto-15.jpeg"></ul>
+      </div>
         </figure>
 
         <figure class="photo-card reveal" data-collection="outubro" data-date="6 de outubro de 2026">
-          <button class="photo-card__open" type="button" aria-label="Ampliar foto 16 de 38">
+          <button class="photo-card__open" type="button" aria-label="Ampliar foto 16 de 39">
             <img src="fotos/foto-16.jpeg" alt="Foto 16 do álbum — 6 de outubro de 2026" width="1280" height="960" loading="lazy" decoding="async">
             <span class="photo-card__meta"><span class="photo-card__date">6 de outubro de 2026</span><span class="photo-card__zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></span></span>
           </button>
+      <div class="photo-interaction">
+        <button class="like-btn" type="button" data-foto="foto-16.jpeg" aria-label="Curtir foto">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.69l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.27 1.27a5.5 5.5 0 0 0 7.78 0l1.27-1.27L12 21.25l7.73-7.73a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          <span class="like-count">0</span>
+        </button>
+        <div class="comment-row">
+          <input class="comment-text" type="text" placeholder="Deixe um comentário..." data-foto="foto-16.jpeg" aria-label="Escrever comentário">
+          <button class="comment-btn" type="button" data-foto="foto-16.jpeg">Enviar</button>
+        </div>
+        <p class="comment-count" id="comment-count-foto-16.jpeg">0 comentários</p>
+        <ul class="comment-list" id="comment-list-foto-16.jpeg"></ul>
+      </div>
         </figure>
 
         <figure class="photo-card reveal" data-collection="outubro" data-date="6 de outubro de 2026">
-          <button class="photo-card__open" type="button" aria-label="Ampliar foto 17 de 38">
+          <button class="photo-card__open" type="button" aria-label="Ampliar foto 17 de 39">
             <img src="fotos/foto-17.jpeg" alt="Foto 17 do álbum — 6 de outubro de 2026" width="1280" height="960" loading="lazy" decoding="async">
             <span class="photo-card__meta"><span class="photo-card__date">6 de outubro de 2026</span><span class="photo-card__zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></span></span>
           </button>
+      <div class="photo-interaction">
+        <button class="like-btn" type="button" data-foto="foto-17.jpeg" aria-label="Curtir foto">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.69l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.27 1.27a5.5 5.5 0 0 0 7.78 0l1.27-1.27L12 21.25l7.73-7.73a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          <span class="like-count">0</span>
+        </button>
+        <div class="comment-row">
+          <input class="comment-text" type="text" placeholder="Deixe um comentário..." data-foto="foto-17.jpeg" aria-label="Escrever comentário">
+          <button class="comment-btn" type="button" data-foto="foto-17.jpeg">Enviar</button>
+        </div>
+        <p class="comment-count" id="comment-count-foto-17.jpeg">0 comentários</p>
+        <ul class="comment-list" id="comment-list-foto-17.jpeg"></ul>
+      </div>
         </figure>
 
         <figure class="photo-card reveal" data-collection="outubro" data-date="6 de outubro de 2026">
-          <button class="photo-card__open" type="button" aria-label="Ampliar foto 18 de 38">
+          <button class="photo-card__open" type="button" aria-label="Ampliar foto 18 de 39">
             <img src="fotos/foto-18.jpeg" alt="Foto 18 do álbum — 6 de outubro de 2026" width="1280" height="960" loading="lazy" decoding="async">
             <span class="photo-card__meta"><span class="photo-card__date">6 de outubro de 2026</span><span class="photo-card__zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></span></span>
           </button>
+      <div class="photo-interaction">
+        <button class="like-btn" type="button" data-foto="foto-18.jpeg" aria-label="Curtir foto">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.69l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.27 1.27a5.5 5.5 0 0 0 7.78 0l1.27-1.27L12 21.25l7.73-7.73a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          <span class="like-count">0</span>
+        </button>
+        <div class="comment-row">
+          <input class="comment-text" type="text" placeholder="Deixe um comentário..." data-foto="foto-18.jpeg" aria-label="Escrever comentário">
+          <button class="comment-btn" type="button" data-foto="foto-18.jpeg">Enviar</button>
+        </div>
+        <p class="comment-count" id="comment-count-foto-18.jpeg">0 comentários</p>
+        <ul class="comment-list" id="comment-list-foto-18.jpeg"></ul>
+      </div>
         </figure>
 
         <figure class="photo-card reveal" data-collection="outubro" data-date="6 de outubro de 2026">
-          <button class="photo-card__open" type="button" aria-label="Ampliar foto 19 de 38">
+          <button class="photo-card__open" type="button" aria-label="Ampliar foto 19 de 39">
             <img src="fotos/foto-19.jpeg" alt="Foto 19 do álbum — 6 de outubro de 2026" width="1280" height="960" loading="lazy" decoding="async">
             <span class="photo-card__meta"><span class="photo-card__date">6 de outubro de 2026</span><span class="photo-card__zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></span></span>
           </button>
+      <div class="photo-interaction">
+        <button class="like-btn" type="button" data-foto="foto-19.jpeg" aria-label="Curtir foto">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.69l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.27 1.27a5.5 5.5 0 0 0 7.78 0l1.27-1.27L12 21.25l7.73-7.73a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          <span class="like-count">0</span>
+        </button>
+        <div class="comment-row">
+          <input class="comment-text" type="text" placeholder="Deixe um comentário..." data-foto="foto-19.jpeg" aria-label="Escrever comentário">
+          <button class="comment-btn" type="button" data-foto="foto-19.jpeg">Enviar</button>
+        </div>
+        <p class="comment-count" id="comment-count-foto-19.jpeg">0 comentários</p>
+        <ul class="comment-list" id="comment-list-foto-19.jpeg"></ul>
+      </div>
         </figure>
 
         <figure class="photo-card reveal" data-collection="outubro" data-date="6 de outubro de 2026">
-          <button class="photo-card__open" type="button" aria-label="Ampliar foto 20 de 38">
+          <button class="photo-card__open" type="button" aria-label="Ampliar foto 20 de 39">
             <img src="fotos/foto-20.jpeg" alt="Foto 20 do álbum — 6 de outubro de 2026" width="1280" height="960" loading="lazy" decoding="async">
             <span class="photo-card__meta"><span class="photo-card__date">6 de outubro de 2026</span><span class="photo-card__zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></span></span>
           </button>
+      <div class="photo-interaction">
+        <button class="like-btn" type="button" data-foto="foto-20.jpeg" aria-label="Curtir foto">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.69l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.27 1.27a5.5 5.5 0 0 0 7.78 0l1.27-1.27L12 21.25l7.73-7.73a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          <span class="like-count">0</span>
+        </button>
+        <div class="comment-row">
+          <input class="comment-text" type="text" placeholder="Deixe um comentário..." data-foto="foto-20.jpeg" aria-label="Escrever comentário">
+          <button class="comment-btn" type="button" data-foto="foto-20.jpeg">Enviar</button>
+        </div>
+        <p class="comment-count" id="comment-count-foto-20.jpeg">0 comentários</p>
+        <ul class="comment-list" id="comment-list-foto-20.jpeg"></ul>
+      </div>
         </figure>
 
         <figure class="photo-card reveal" data-collection="outubro" data-date="6 de outubro de 2026">
-          <button class="photo-card__open" type="button" aria-label="Ampliar foto 21 de 38">
+          <button class="photo-card__open" type="button" aria-label="Ampliar foto 21 de 39">
             <img src="fotos/foto-21.jpeg" alt="Foto 21 do álbum — 6 de outubro de 2026" width="1280" height="960" loading="lazy" decoding="async">
             <span class="photo-card__meta"><span class="photo-card__date">6 de outubro de 2026</span><span class="photo-card__zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></span></span>
           </button>
+      <div class="photo-interaction">
+        <button class="like-btn" type="button" data-foto="foto-21.jpeg" aria-label="Curtir foto">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.69l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.27 1.27a5.5 5.5 0 0 0 7.78 0l1.27-1.27L12 21.25l7.73-7.73a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          <span class="like-count">0</span>
+        </button>
+        <div class="comment-row">
+          <input class="comment-text" type="text" placeholder="Deixe um comentário..." data-foto="foto-21.jpeg" aria-label="Escrever comentário">
+          <button class="comment-btn" type="button" data-foto="foto-21.jpeg">Enviar</button>
+        </div>
+        <p class="comment-count" id="comment-count-foto-21.jpeg">0 comentários</p>
+        <ul class="comment-list" id="comment-list-foto-21.jpeg"></ul>
+      </div>
         </figure>
 
         <figure class="photo-card reveal" data-collection="outubro" data-date="6 de outubro de 2026">
-          <button class="photo-card__open" type="button" aria-label="Ampliar foto 22 de 38">
+          <button class="photo-card__open" type="button" aria-label="Ampliar foto 22 de 39">
             <img src="fotos/foto-22.jpeg" alt="Foto 22 do álbum — 6 de outubro de 2026" width="1280" height="960" loading="lazy" decoding="async">
             <span class="photo-card__meta"><span class="photo-card__date">6 de outubro de 2026</span><span class="photo-card__zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></span></span>
           </button>
+      <div class="photo-interaction">
+        <button class="like-btn" type="button" data-foto="foto-22.jpeg" aria-label="Curtir foto">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.69l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.27 1.27a5.5 5.5 0 0 0 7.78 0l1.27-1.27L12 21.25l7.73-7.73a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          <span class="like-count">0</span>
+        </button>
+        <div class="comment-row">
+          <input class="comment-text" type="text" placeholder="Deixe um comentário..." data-foto="foto-22.jpeg" aria-label="Escrever comentário">
+          <button class="comment-btn" type="button" data-foto="foto-22.jpeg">Enviar</button>
+        </div>
+        <p class="comment-count" id="comment-count-foto-22.jpeg">0 comentários</p>
+        <ul class="comment-list" id="comment-list-foto-22.jpeg"></ul>
+      </div>
         </figure>
 
         <figure class="photo-card reveal" data-collection="outubro" data-date="6 de outubro de 2026">
-          <button class="photo-card__open" type="button" aria-label="Ampliar foto 23 de 38">
+          <button class="photo-card__open" type="button" aria-label="Ampliar foto 23 de 39">
             <img src="fotos/foto-23.jpeg" alt="Foto 23 do álbum — 6 de outubro de 2026" width="1280" height="960" loading="lazy" decoding="async">
             <span class="photo-card__meta"><span class="photo-card__date">6 de outubro de 2026</span><span class="photo-card__zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></span></span>
           </button>
+      <div class="photo-interaction">
+        <button class="like-btn" type="button" data-foto="foto-23.jpeg" aria-label="Curtir foto">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.69l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.27 1.27a5.5 5.5 0 0 0 7.78 0l1.27-1.27L12 21.25l7.73-7.73a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          <span class="like-count">0</span>
+        </button>
+        <div class="comment-row">
+          <input class="comment-text" type="text" placeholder="Deixe um comentário..." data-foto="foto-23.jpeg" aria-label="Escrever comentário">
+          <button class="comment-btn" type="button" data-foto="foto-23.jpeg">Enviar</button>
+        </div>
+        <p class="comment-count" id="comment-count-foto-23.jpeg">0 comentários</p>
+        <ul class="comment-list" id="comment-list-foto-23.jpeg"></ul>
+      </div>
         </figure>
 
         <figure class="photo-card reveal" data-collection="outubro" data-date="6 de outubro de 2026">
-          <button class="photo-card__open" type="button" aria-label="Ampliar foto 24 de 38">
+          <button class="photo-card__open" type="button" aria-label="Ampliar foto 24 de 39">
             <img src="fotos/foto-24.jpeg" alt="Foto 24 do álbum — 6 de outubro de 2026" width="1280" height="960" loading="lazy" decoding="async">
             <span class="photo-card__meta"><span class="photo-card__date">6 de outubro de 2026</span><span class="photo-card__zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></span></span>
           </button>
+      <div class="photo-interaction">
+        <button class="like-btn" type="button" data-foto="foto-24.jpeg" aria-label="Curtir foto">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.69l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.27 1.27a5.5 5.5 0 0 0 7.78 0l1.27-1.27L12 21.25l7.73-7.73a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          <span class="like-count">0</span>
+        </button>
+        <div class="comment-row">
+          <input class="comment-text" type="text" placeholder="Deixe um comentário..." data-foto="foto-24.jpeg" aria-label="Escrever comentário">
+          <button class="comment-btn" type="button" data-foto="foto-24.jpeg">Enviar</button>
+        </div>
+        <p class="comment-count" id="comment-count-foto-24.jpeg">0 comentários</p>
+        <ul class="comment-list" id="comment-list-foto-24.jpeg"></ul>
+      </div>
         </figure>
 
         <figure class="photo-card reveal" data-collection="outubro" data-date="6 de outubro de 2026">
-          <button class="photo-card__open" type="button" aria-label="Ampliar foto 25 de 38">
+          <button class="photo-card__open" type="button" aria-label="Ampliar foto 25 de 39">
             <img src="fotos/foto-25.jpeg" alt="Foto 25 do álbum — 6 de outubro de 2026" width="1280" height="960" loading="lazy" decoding="async">
             <span class="photo-card__meta"><span class="photo-card__date">6 de outubro de 2026</span><span class="photo-card__zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></span></span>
           </button>
+      <div class="photo-interaction">
+        <button class="like-btn" type="button" data-foto="foto-25.jpeg" aria-label="Curtir foto">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.69l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.27 1.27a5.5 5.5 0 0 0 7.78 0l1.27-1.27L12 21.25l7.73-7.73a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          <span class="like-count">0</span>
+        </button>
+        <div class="comment-row">
+          <input class="comment-text" type="text" placeholder="Deixe um comentário..." data-foto="foto-25.jpeg" aria-label="Escrever comentário">
+          <button class="comment-btn" type="button" data-foto="foto-25.jpeg">Enviar</button>
+        </div>
+        <p class="comment-count" id="comment-count-foto-25.jpeg">0 comentários</p>
+        <ul class="comment-list" id="comment-list-foto-25.jpeg"></ul>
+      </div>
         </figure>
 
         <figure class="photo-card reveal" data-collection="outubro" data-date="6 de outubro de 2026">
-          <button class="photo-card__open" type="button" aria-label="Ampliar foto 26 de 38">
+          <button class="photo-card__open" type="button" aria-label="Ampliar foto 26 de 39">
             <img src="fotos/foto-26.jpeg" alt="Foto 26 do álbum — 6 de outubro de 2026" width="1280" height="959" loading="lazy" decoding="async">
             <span class="photo-card__meta"><span class="photo-card__date">6 de outubro de 2026</span><span class="photo-card__zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></span></span>
           </button>
+      <div class="photo-interaction">
+        <button class="like-btn" type="button" data-foto="foto-26.jpeg" aria-label="Curtir foto">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.69l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.27 1.27a5.5 5.5 0 0 0 7.78 0l1.27-1.27L12 21.25l7.73-7.73a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          <span class="like-count">0</span>
+        </button>
+        <div class="comment-row">
+          <input class="comment-text" type="text" placeholder="Deixe um comentário..." data-foto="foto-26.jpeg" aria-label="Escrever comentário">
+          <button class="comment-btn" type="button" data-foto="foto-26.jpeg">Enviar</button>
+        </div>
+        <p class="comment-count" id="comment-count-foto-26.jpeg">0 comentários</p>
+        <ul class="comment-list" id="comment-list-foto-26.jpeg"></ul>
+      </div>
         </figure>
 
         <figure class="photo-card reveal" data-collection="outubro" data-date="6 de outubro de 2026">
-          <button class="photo-card__open" type="button" aria-label="Ampliar foto 27 de 38">
+          <button class="photo-card__open" type="button" aria-label="Ampliar foto 27 de 39">
             <img src="fotos/foto-27.jpeg" alt="Foto 27 do álbum — 6 de outubro de 2026" width="1280" height="960" loading="lazy" decoding="async">
             <span class="photo-card__meta"><span class="photo-card__date">6 de outubro de 2026</span><span class="photo-card__zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></span></span>
           </button>
+      <div class="photo-interaction">
+        <button class="like-btn" type="button" data-foto="foto-27.jpeg" aria-label="Curtir foto">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.69l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.27 1.27a5.5 5.5 0 0 0 7.78 0l1.27-1.27L12 21.25l7.73-7.73a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          <span class="like-count">0</span>
+        </button>
+        <div class="comment-row">
+          <input class="comment-text" type="text" placeholder="Deixe um comentário..." data-foto="foto-27.jpeg" aria-label="Escrever comentário">
+          <button class="comment-btn" type="button" data-foto="foto-27.jpeg">Enviar</button>
+        </div>
+        <p class="comment-count" id="comment-count-foto-27.jpeg">0 comentários</p>
+        <ul class="comment-list" id="comment-list-foto-27.jpeg"></ul>
+      </div>
         </figure>
 
         <figure class="photo-card reveal" data-collection="outubro" data-date="6 de outubro de 2026">
-          <button class="photo-card__open" type="button" aria-label="Ampliar foto 28 de 38">
+          <button class="photo-card__open" type="button" aria-label="Ampliar foto 28 de 39">
             <img src="fotos/foto-28.jpeg" alt="Foto 28 do álbum — 6 de outubro de 2026" width="1280" height="959" loading="lazy" decoding="async">
             <span class="photo-card__meta"><span class="photo-card__date">6 de outubro de 2026</span><span class="photo-card__zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></span></span>
           </button>
+      <div class="photo-interaction">
+        <button class="like-btn" type="button" data-foto="foto-28.jpeg" aria-label="Curtir foto">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.69l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.27 1.27a5.5 5.5 0 0 0 7.78 0l1.27-1.27L12 21.25l7.73-7.73a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          <span class="like-count">0</span>
+        </button>
+        <div class="comment-row">
+          <input class="comment-text" type="text" placeholder="Deixe um comentário..." data-foto="foto-28.jpeg" aria-label="Escrever comentário">
+          <button class="comment-btn" type="button" data-foto="foto-28.jpeg">Enviar</button>
+        </div>
+        <p class="comment-count" id="comment-count-foto-28.jpeg">0 comentários</p>
+        <ul class="comment-list" id="comment-list-foto-28.jpeg"></ul>
+      </div>
         </figure>
 
         <figure class="photo-card reveal" data-collection="outubro" data-date="6 de outubro de 2026">
-          <button class="photo-card__open" type="button" aria-label="Ampliar foto 29 de 38">
+          <button class="photo-card__open" type="button" aria-label="Ampliar foto 29 de 39">
             <img src="fotos/foto-29.jpeg" alt="Foto 29 do álbum — 6 de outubro de 2026" width="1280" height="960" loading="lazy" decoding="async">
             <span class="photo-card__meta"><span class="photo-card__date">6 de outubro de 2026</span><span class="photo-card__zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></span></span>
           </button>
+      <div class="photo-interaction">
+        <button class="like-btn" type="button" data-foto="foto-29.jpeg" aria-label="Curtir foto">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.69l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.27 1.27a5.5 5.5 0 0 0 7.78 0l1.27-1.27L12 21.25l7.73-7.73a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          <span class="like-count">0</span>
+        </button>
+        <div class="comment-row">
+          <input class="comment-text" type="text" placeholder="Deixe um comentário..." data-foto="foto-29.jpeg" aria-label="Escrever comentário">
+          <button class="comment-btn" type="button" data-foto="foto-29.jpeg">Enviar</button>
+        </div>
+        <p class="comment-count" id="comment-count-foto-29.jpeg">0 comentários</p>
+        <ul class="comment-list" id="comment-list-foto-29.jpeg"></ul>
+      </div>
         </figure>
 
         <figure class="photo-card reveal" data-collection="outubro" data-date="6 de outubro de 2026">
-          <button class="photo-card__open" type="button" aria-label="Ampliar foto 30 de 38">
+          <button class="photo-card__open" type="button" aria-label="Ampliar foto 30 de 39">
             <img src="fotos/foto-30.jpeg" alt="Foto 30 do álbum — 6 de outubro de 2026" width="1280" height="960" loading="lazy" decoding="async">
             <span class="photo-card__meta"><span class="photo-card__date">6 de outubro de 2026</span><span class="photo-card__zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></span></span>
           </button>
+      <div class="photo-interaction">
+        <button class="like-btn" type="button" data-foto="foto-30.jpeg" aria-label="Curtir foto">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.69l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.27 1.27a5.5 5.5 0 0 0 7.78 0l1.27-1.27L12 21.25l7.73-7.73a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          <span class="like-count">0</span>
+        </button>
+        <div class="comment-row">
+          <input class="comment-text" type="text" placeholder="Deixe um comentário..." data-foto="foto-30.jpeg" aria-label="Escrever comentário">
+          <button class="comment-btn" type="button" data-foto="foto-30.jpeg">Enviar</button>
+        </div>
+        <p class="comment-count" id="comment-count-foto-30.jpeg">0 comentários</p>
+        <ul class="comment-list" id="comment-list-foto-30.jpeg"></ul>
+      </div>
         </figure>
 
         <figure class="photo-card reveal" data-collection="outubro" data-date="6 de outubro de 2026">
-          <button class="photo-card__open" type="button" aria-label="Ampliar foto 31 de 38">
+          <button class="photo-card__open" type="button" aria-label="Ampliar foto 31 de 39">
             <img src="fotos/foto-31.jpeg" alt="Foto 31 do álbum — 6 de outubro de 2026" width="1280" height="960" loading="lazy" decoding="async">
             <span class="photo-card__meta"><span class="photo-card__date">6 de outubro de 2026</span><span class="photo-card__zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></span></span>
           </button>
+      <div class="photo-interaction">
+        <button class="like-btn" type="button" data-foto="foto-31.jpeg" aria-label="Curtir foto">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.69l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.27 1.27a5.5 5.5 0 0 0 7.78 0l1.27-1.27L12 21.25l7.73-7.73a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          <span class="like-count">0</span>
+        </button>
+        <div class="comment-row">
+          <input class="comment-text" type="text" placeholder="Deixe um comentário..." data-foto="foto-31.jpeg" aria-label="Escrever comentário">
+          <button class="comment-btn" type="button" data-foto="foto-31.jpeg">Enviar</button>
+        </div>
+        <p class="comment-count" id="comment-count-foto-31.jpeg">0 comentários</p>
+        <ul class="comment-list" id="comment-list-foto-31.jpeg"></ul>
+      </div>
         </figure>
 
         <figure class="photo-card reveal" data-collection="outubro" data-date="6 de outubro de 2026">
-          <button class="photo-card__open" type="button" aria-label="Ampliar foto 32 de 38">
+          <button class="photo-card__open" type="button" aria-label="Ampliar foto 32 de 39">
             <img src="fotos/foto-32.jpeg" alt="Foto 32 do álbum — 6 de outubro de 2026" width="1280" height="960" loading="lazy" decoding="async">
             <span class="photo-card__meta"><span class="photo-card__date">6 de outubro de 2026</span><span class="photo-card__zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></span></span>
           </button>
+      <div class="photo-interaction">
+        <button class="like-btn" type="button" data-foto="foto-32.jpeg" aria-label="Curtir foto">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.69l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.27 1.27a5.5 5.5 0 0 0 7.78 0l1.27-1.27L12 21.25l7.73-7.73a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          <span class="like-count">0</span>
+        </button>
+        <div class="comment-row">
+          <input class="comment-text" type="text" placeholder="Deixe um comentário..." data-foto="foto-32.jpeg" aria-label="Escrever comentário">
+          <button class="comment-btn" type="button" data-foto="foto-32.jpeg">Enviar</button>
+        </div>
+        <p class="comment-count" id="comment-count-foto-32.jpeg">0 comentários</p>
+        <ul class="comment-list" id="comment-list-foto-32.jpeg"></ul>
+      </div>
         </figure>
 
         <figure class="photo-card reveal" data-collection="outubro" data-date="6 de outubro de 2026">
-          <button class="photo-card__open" type="button" aria-label="Ampliar foto 33 de 38">
+          <button class="photo-card__open" type="button" aria-label="Ampliar foto 33 de 39">
             <img src="fotos/foto-33.jpeg" alt="Foto 33 do álbum — 6 de outubro de 2026" width="1280" height="960" loading="lazy" decoding="async">
             <span class="photo-card__meta"><span class="photo-card__date">6 de outubro de 2026</span><span class="photo-card__zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></span></span>
           </button>
+      <div class="photo-interaction">
+        <button class="like-btn" type="button" data-foto="foto-33.jpeg" aria-label="Curtir foto">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.69l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.27 1.27a5.5 5.5 0 0 0 7.78 0l1.27-1.27L12 21.25l7.73-7.73a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          <span class="like-count">0</span>
+        </button>
+        <div class="comment-row">
+          <input class="comment-text" type="text" placeholder="Deixe um comentário..." data-foto="foto-33.jpeg" aria-label="Escrever comentário">
+          <button class="comment-btn" type="button" data-foto="foto-33.jpeg">Enviar</button>
+        </div>
+        <p class="comment-count" id="comment-count-foto-33.jpeg">0 comentários</p>
+        <ul class="comment-list" id="comment-list-foto-33.jpeg"></ul>
+      </div>
         </figure>
 
         <figure class="photo-card reveal" data-collection="outubro" data-date="6 de outubro de 2026">
-          <button class="photo-card__open" type="button" aria-label="Ampliar foto 34 de 38">
+          <button class="photo-card__open" type="button" aria-label="Ampliar foto 34 de 39">
             <img src="fotos/foto-34.jpeg" alt="Foto 34 do álbum — 6 de outubro de 2026" width="1280" height="960" loading="lazy" decoding="async">
             <span class="photo-card__meta"><span class="photo-card__date">6 de outubro de 2026</span><span class="photo-card__zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></span></span>
           </button>
+      <div class="photo-interaction">
+        <button class="like-btn" type="button" data-foto="foto-34.jpeg" aria-label="Curtir foto">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.69l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.27 1.27a5.5 5.5 0 0 0 7.78 0l1.27-1.27L12 21.25l7.73-7.73a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          <span class="like-count">0</span>
+        </button>
+        <div class="comment-row">
+          <input class="comment-text" type="text" placeholder="Deixe um comentário..." data-foto="foto-34.jpeg" aria-label="Escrever comentário">
+          <button class="comment-btn" type="button" data-foto="foto-34.jpeg">Enviar</button>
+        </div>
+        <p class="comment-count" id="comment-count-foto-34.jpeg">0 comentários</p>
+        <ul class="comment-list" id="comment-list-foto-34.jpeg"></ul>
+      </div>
         </figure>
 
         <figure class="photo-card reveal" data-collection="outubro" data-date="6 de outubro de 2026">
-          <button class="photo-card__open" type="button" aria-label="Ampliar foto 35 de 38">
+          <button class="photo-card__open" type="button" aria-label="Ampliar foto 35 de 39">
             <img src="fotos/foto-35.jpeg" alt="Foto 35 do álbum — 6 de outubro de 2026" width="1280" height="960" loading="lazy" decoding="async">
             <span class="photo-card__meta"><span class="photo-card__date">6 de outubro de 2026</span><span class="photo-card__zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></span></span>
           </button>
+      <div class="photo-interaction">
+        <button class="like-btn" type="button" data-foto="foto-35.jpeg" aria-label="Curtir foto">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.69l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.27 1.27a5.5 5.5 0 0 0 7.78 0l1.27-1.27L12 21.25l7.73-7.73a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          <span class="like-count">0</span>
+        </button>
+        <div class="comment-row">
+          <input class="comment-text" type="text" placeholder="Deixe um comentário..." data-foto="foto-35.jpeg" aria-label="Escrever comentário">
+          <button class="comment-btn" type="button" data-foto="foto-35.jpeg">Enviar</button>
+        </div>
+        <p class="comment-count" id="comment-count-foto-35.jpeg">0 comentários</p>
+        <ul class="comment-list" id="comment-list-foto-35.jpeg"></ul>
+      </div>
         </figure>
 
         <figure class="photo-card reveal" data-collection="dezembro" data-date="21 de dezembro de 2025">
-          <button class="photo-card__open" type="button" aria-label="Ampliar foto 36 de 38">
+          <button class="photo-card__open" type="button" aria-label="Ampliar foto 36 de 39">
             <img src="fotos/foto-36.jpeg" alt="Foto 36 do álbum — 21 de dezembro de 2025" width="1600" height="1200" loading="lazy" decoding="async">
             <span class="photo-card__meta"><span class="photo-card__date">21 de dezembro de 2025</span><span class="photo-card__zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></span></span>
           </button>
+      <div class="photo-interaction">
+        <button class="like-btn" type="button" data-foto="foto-36.jpeg" aria-label="Curtir foto">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.69l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.27 1.27a5.5 5.5 0 0 0 7.78 0l1.27-1.27L12 21.25l7.73-7.73a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          <span class="like-count">0</span>
+        </button>
+        <div class="comment-row">
+          <input class="comment-text" type="text" placeholder="Deixe um comentário..." data-foto="foto-36.jpeg" aria-label="Escrever comentário">
+          <button class="comment-btn" type="button" data-foto="foto-36.jpeg">Enviar</button>
+        </div>
+        <p class="comment-count" id="comment-count-foto-36.jpeg">0 comentários</p>
+        <ul class="comment-list" id="comment-list-foto-36.jpeg"></ul>
+      </div>
         </figure>
 
         <figure class="photo-card reveal" data-collection="dezembro" data-date="21 de dezembro de 2025">
-          <button class="photo-card__open" type="button" aria-label="Ampliar foto 37 de 38">
+          <button class="photo-card__open" type="button" aria-label="Ampliar foto 37 de 39">
             <img src="fotos/foto-37.jpeg" alt="Foto 37 do álbum — 21 de dezembro de 2025" width="1600" height="1200" loading="lazy" decoding="async">
             <span class="photo-card__meta"><span class="photo-card__date">21 de dezembro de 2025</span><span class="photo-card__zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></span></span>
           </button>
+      <div class="photo-interaction">
+        <button class="like-btn" type="button" data-foto="foto-37.jpeg" aria-label="Curtir foto">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.69l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.27 1.27a5.5 5.5 0 0 0 7.78 0l1.27-1.27L12 21.25l7.73-7.73a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          <span class="like-count">0</span>
+        </button>
+        <div class="comment-row">
+          <input class="comment-text" type="text" placeholder="Deixe um comentário..." data-foto="foto-37.jpeg" aria-label="Escrever comentário">
+          <button class="comment-btn" type="button" data-foto="foto-37.jpeg">Enviar</button>
+        </div>
+        <p class="comment-count" id="comment-count-foto-37.jpeg">0 comentários</p>
+        <ul class="comment-list" id="comment-list-foto-37.jpeg"></ul>
+      </div>
         </figure>
 
         <figure class="photo-card reveal" data-collection="dezembro" data-date="21 de dezembro de 2025">
-          <button class="photo-card__open" type="button" aria-label="Ampliar foto 38 de 38">
+          <button class="photo-card__open" type="button" aria-label="Ampliar foto 38 de 39">
             <img src="fotos/foto-38.jpeg" alt="Foto 38 do álbum — 21 de dezembro de 2025" width="1600" height="1200" loading="lazy" decoding="async">
             <span class="photo-card__meta"><span class="photo-card__date">21 de dezembro de 2025</span><span class="photo-card__zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></span></span>
           </button>
+      <div class="photo-interaction">
+        <button class="like-btn" type="button" data-foto="foto-38.jpeg" aria-label="Curtir foto">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.69l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.27 1.27a5.5 5.5 0 0 0 7.78 0l1.27-1.27L12 21.25l7.73-7.73a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          <span class="like-count">0</span>
+        </button>
+        <div class="comment-row">
+          <input class="comment-text" type="text" placeholder="Deixe um comentário..." data-foto="foto-38.jpeg" aria-label="Escrever comentário">
+          <button class="comment-btn" type="button" data-foto="foto-38.jpeg">Enviar</button>
+        </div>
+        <p class="comment-count" id="comment-count-foto-38.jpeg">0 comentários</p>
+        <ul class="comment-list" id="comment-list-foto-38.jpeg"></ul>
+      </div>
+        </figure>
+        <figure class="photo-card reveal" data-collection="outubro" data-date="6 de outubro de 2026">
+          <button class="photo-card__open" type="button" aria-label="Ampliar foto 39 de 39">
+            <img src="fotos/foto-39.jpeg" alt="Foto 39 do álbum — 6 de outubro de 2026" width="1280" height="959" loading="lazy" decoding="async">
+            <span class="photo-card__meta"><span class="photo-card__date">6 de outubro de 2026</span><span class="photo-card__zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></span></span>
+          </button>
+      <div class="photo-interaction">
+        <button class="like-btn" type="button" data-foto="foto-39.jpeg" aria-label="Curtir foto">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.69l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.27 1.27a5.5 5.5 0 0 0 7.78 0l1.27-1.27L12 21.25l7.73-7.73a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          <span class="like-count">0</span>
+        </button>
+        <div class="comment-row">
+          <input class="comment-text" type="text" placeholder="Deixe um comentário..." data-foto="foto-39.jpeg" aria-label="Escrever comentário">
+          <button class="comment-btn" type="button" data-foto="foto-39.jpeg">Enviar</button>
+        </div>
+        <p class="comment-count" id="comment-count-foto-39.jpeg">0 comentários</p>
+        <ul class="comment-list" id="comment-list-foto-39.jpeg"></ul>
+      </div>
         </figure>
 
 
@@ -412,7 +899,7 @@ setTimeout(function(){
         </div>
       </div>
 
-      <p class="count" id="videoCount">1 vídeo · 5 espaços</p>
+      <p class="count" id="videoCount">4 vídeos · 2 espaços</p>
 
       <div class="video-gallery" id="videoGallery">
         <figure class="video-card reveal" data-kind="file"
@@ -429,62 +916,51 @@ setTimeout(function(){
             </span>
           </button>
         </figure>
+        <figure class="video-card reveal" data-kind="file"
+                data-src="videos/IMG_0129-MOV.mp4"
+                data-title="Video 0129" data-date="6 de outubro de 2026">
+          <button class="video-card__open" type="button" aria-label="Assistir: Video 0129">
+            <span class="video-card__frame">
+              <video src="videos/IMG_0129-MOV.mp4" preload="metadata" muted playsinline></video>
+              <span class="video-card__play" aria-hidden="true"><span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></span>
+            </span>
+            <span class="video-card__info">
+              <span><strong>Video 0129</strong></span>
+              <span class="video-card__date">6 de outubro de 2026</span>
+            </span>
+          </button>
+        </figure>
+        <figure class="video-card reveal" data-kind="file"
+                data-src="videos/IMG_0136-MOV.mp4"
+                data-title="Video 0136" data-date="6 de outubro de 2026">
+          <button class="video-card__open" type="button" aria-label="Assistir: Video 0136">
+            <span class="video-card__frame">
+              <video src="videos/IMG_0136-MOV.mp4" preload="metadata" muted playsinline></video>
+              <span class="video-card__play" aria-hidden="true"><span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></span>
+            </span>
+            <span class="video-card__info">
+              <span><strong>Video 0136</strong></span>
+              <span class="video-card__date">6 de outubro de 2026</span>
+            </span>
+          </button>
+        </figure>
+        <figure class="video-card reveal" data-kind="file"
+                data-src="videos/IMG_0140-MOV.mp4"
+                data-title="Video 0140" data-date="6 de outubro de 2026">
+          <button class="video-card__open" type="button" aria-label="Assistir: Video 0140">
+            <span class="video-card__frame">
+              <video src="videos/IMG_0140-MOV.mp4" preload="metadata" muted playsinline></video>
+              <span class="video-card__play" aria-hidden="true"><span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></span>
+            </span>
+            <span class="video-card__info">
+              <span><strong>Video 0140</strong></span>
+              <span class="video-card__date">6 de outubro de 2026</span>
+            </span>
+          </button>
+        </figure>
       </div>
 
-      
-<figure class="video-card reveal" data-kind="file"
-                data-src="videos/videos/IMG_0129-MOV.mp4"
-                data-title="0129 MOV" data-date="28 de junho de 2024">
-          <button class="video-card__open" type="button" aria-label="Assistir: 0129 MOV">
-            <span class="video-card__frame">
-              <video src="videos/videos/IMG_0129-MOV.mp4" preload="metadata" muted playsinline></video>
-              <span class="video-card__play" aria-hidden="true"><span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></span>
-            </span>
-            <span class="video-card__info">
-              <span><strong>0129 MOV</strong></span>
-              <span class="video-card__date">28 de junho de 2024</span>
-            </span>
-          </button>
-        </figure><figure class="video-card reveal" data-kind="file"
-                data-src="videos/videos/IMG_0136-MOV.mp4"
-                data-title="0136 MOV" data-date="28 de junho de 2024">
-          <button class="video-card__open" type="button" aria-label="Assistir: 0136 MOV">
-            <span class="video-card__frame">
-              <video src="videos/videos/IMG_0136-MOV.mp4" preload="metadata" muted playsinline></video>
-              <span class="video-card__play" aria-hidden="true"><span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></span>
-            </span>
-            <span class="video-card__info">
-              <span><strong>0136 MOV</strong></span>
-              <span class="video-card__date">28 de junho de 2024</span>
-            </span>
-          </button>
-        </figure><figure class="video-card reveal" data-kind="file"
-                data-src="videos/videos/IMG_0140-MOV.mp4"
-                data-title="0140 MOV" data-date="28 de junho de 2024">
-          <button class="video-card__open" type="button" aria-label="Assistir: 0140 MOV">
-            <span class="video-card__frame">
-              <video src="videos/videos/IMG_0140-MOV.mp4" preload="metadata" muted playsinline></video>
-              <span class="video-card__play" aria-hidden="true"><span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></span>
-            </span>
-            <span class="video-card__info">
-              <span><strong>0140 MOV</strong></span>
-              <span class="video-card__date">28 de junho de 2024</span>
-            </span>
-          </button>
-        </figure><figure class="video-card reveal" data-kind="file"
-                data-src="videos/videos/show-01.mp4"
-                data-title="show 01" data-date="28 de junho de 2024">
-          <button class="video-card__open" type="button" aria-label="Assistir: show 01">
-            <span class="video-card__frame">
-              <video src="videos/videos/show-01.mp4" preload="metadata" muted playsinline></video>
-              <span class="video-card__play" aria-hidden="true"><span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></span>
-            </span>
-            <span class="video-card__info">
-              <span><strong>show 01</strong></span>
-              <span class="video-card__date">28 de junho de 2024</span>
-            </span>
-          </button>
-        </figure><p class="empty" id="videoEmpty" hidden>Espaço reservado — clique em <strong>Escolher do PC</strong> e aponte um vídeo de show ou aniversário.</p>
+      <p class="empty" id="videoEmpty" hidden>Espaço reservado — clique em <strong>Escolher do PC</strong> e aponte um vídeo de show ou aniversário.</p>
 
     </div>
   </section>
@@ -569,13 +1045,49 @@ setTimeout(function(){
 <input type="file" id="videoInput" accept="video/*" multiple hidden>
 
 <script src="script.js"></script>
+
+    <script>
+      // Likes e comentarios (localStorage, sem backend)
+      document.addEventListener("DOMContentLoaded", function() {
+        document.querySelectorAll(".like-btn").forEach(function(btn) {
+          var foto = btn.getAttribute("data-foto");
+          var countEl = btn.querySelector(".like-count");
+          try {
+            var s = localStorage.getItem("like-" + foto);
+            if (s !== null) { countEl.textContent = s; btn.classList.add("is-liked"); }
+          } catch (e) {}
+          btn.addEventListener("click", function(ev) {
+            ev.stopPropagation();
+            var n = parseInt(countEl.textContent, 10); if (isNaN(n)) n = 0;
+            n++; countEl.textContent = n; btn.classList.add("is-liked");
+            try { localStorage.setItem("like-" + foto, String(n)); } catch (e) {}
+          });
+        });
+        document.querySelectorAll(".photo-interaction").forEach(function(box) {
+          var input = box.querySelector(".comment-text");
+          var send = box.querySelector(".comment-btn");
+          var foto = send ? send.getAttribute("data-foto") : null;
+          if (!input || !send || !foto) return;
+          var list = box.querySelector(".comment-list");
+          var count = box.querySelector(".comment-count");
+          function render(arr) {
+            list.innerHTML = "";
+            arr.forEach(function(t) { var li = document.createElement("li"); li.textContent = t; list.appendChild(li); });
+            count.textContent = arr.length + (arr.length === 1 ? " coment\u00e1rio" : " coment\u00e1rios");
+          }
+          var arr = [];
+          try { arr = JSON.parse(localStorage.getItem("comments-" + foto) || "[]"); } catch (e) { arr = []; }
+          render(arr);
+          function post() {
+            var t = input.value.trim(); if (!t) return;
+            arr.push(t); try { localStorage.setItem("comments-" + foto, JSON.stringify(arr)); } catch (e) {}
+            render(arr); input.value = "";
+          }
+          send.addEventListener("click", function(ev) { ev.stopPropagation(); post(); });
+          input.addEventListener("keydown", function(ev) { ev.stopPropagation(); if (ev.key === "Enter") post(); });
+          input.addEventListener("click", function(ev) { ev.stopPropagation(); });
+        });
+      });
+    </script>
 </body>
 </html>
-
-<figure class="photo-card reveal" data-collection="outubro" data-date="6 de outubro de 2026">
-  <button class="photo-card__open" type="button" aria-label="Ampliar foto 39 de 39">
-    <img src="fotos/foto-39.jpeg" alt="Foto 39 do álbum — Foto 39 do álbum — 6 de outubro de 2026" width="1280" height="960" loading="lazy" decoding="async">
-    <span class="photo-card__meta"><span class="photo-card__date">6 de outubro de 2026</span><span class="photo-card__zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></span></span>
-  </button>
-</figure>
-

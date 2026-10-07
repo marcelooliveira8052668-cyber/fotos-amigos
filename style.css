@@ -203,10 +203,12 @@ button{font-family:inherit}
 }
 .photo-card__open img{
   display:block;width:100%;height:auto;background:#ececef;
-  transition:transform .7s cubic-bezier(.2,.7,.3,1);
+  /* clareza: fotos mais vivas sem estourar */
+  filter:brightness(1.07) contrast(1.04) saturate(1.06);
+  transition:transform .7s cubic-bezier(.2,.7,.3,1),filter .35s ease;
 }
 @media (hover:hover){
-  .photo-card:hover .photo-card__open img{transform:scale(1.05)}
+  .photo-card:hover .photo-card__open img{transform:scale(1.05);filter:brightness(1.1) contrast(1.05) saturate(1.08)}
 }
 
 .photo-card__meta{
@@ -538,3 +540,47 @@ button{font-family:inherit}
   .js .reveal,.js .reveal.is-in{opacity:1!important;translate:none!important;animation:none!important}
   *{animation-duration:.01ms!important;transition-duration:.01ms!important}
 }
+
+/* ============================================================
+   NAV PRINCIPAL (Fotos / Vídeos / Espaços)
+   ============================================================ */
+.main-nav{
+  position:sticky;top:0;z-index:60;
+  background:rgba(246,246,247,.9);backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--line);
+}
+.nav__inner{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:12px}
+.nav__brand{font-weight:700;letter-spacing:-.02em;color:var(--ink);text-decoration:none;font-size:1rem}
+.nav-list{display:flex;gap:6px;list-style:none;margin:0;padding:0}
+.nav-link{
+  display:inline-block;padding:8px 16px;border-radius:999px;
+  color:var(--ink-2);text-decoration:none;font-weight:600;font-size:.88rem;
+  border:1px solid transparent;
+}
+.nav-link:hover{background:var(--accent-soft);color:var(--ink)}
+.nav-link.is-active{background:var(--ink);color:#fff}
+
+/* ============================================================
+   CURTIDAS + COMENTÁRIOS (por foto)
+   ============================================================ */
+.photo-interaction{padding:10px 14px 14px;border-top:1px solid var(--line);background:var(--surface)}
+.like-btn{
+  display:inline-flex;align-items:center;gap:8px;
+  border:1px solid var(--line);background:#fff;border-radius:999px;
+  padding:7px 14px;cursor:pointer;font-weight:600;font-size:.85rem;color:var(--ink);
+}
+.like-btn svg{width:16px;height:16px}
+.like-btn.is-liked{border-color:var(--accent);color:var(--accent);background:var(--accent-soft)}
+.like-btn.is-liked svg{fill:var(--accent);stroke:var(--accent)}
+.comment-row{display:flex;gap:8px;margin-top:10px}
+.comment-text{
+  flex:1;border:1px solid var(--line);border-radius:10px;
+  padding:8px 12px;font:inherit;font-size:.85rem;background:#fff;color:var(--ink);
+}
+.comment-btn{
+  border:0;border-radius:10px;padding:8px 14px;cursor:pointer;
+  background:var(--ink);color:#fff;font-weight:600;font-size:.85rem;
+}
+.comment-count{margin:8px 0 0;font-size:.78rem;color:var(--ink-3)}
+.comment-list{list-style:none;margin:8px 0 0;padding:0;display:grid;gap:6px}
+.comment-list li{background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:7px 11px;font-size:.84rem}
