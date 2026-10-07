@@ -5,6 +5,7 @@
   'use strict';
 
   var TOTAL_SLOTS = 120;               // tamanho total do álbum
+  var TOTAL_VIDEO_SLOTS = 6;           // espaços de vídeo
   var LABELS = {
     all: 'Todas',
     julho: 'Julho',
@@ -15,6 +16,7 @@
 
   var ICON_PLUS = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>';
   var ICON_ZOOM = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>';
+  var ICON_PLAY = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>';
 
   var gallery    = document.getElementById('gallery');
   var emptyEl    = document.getElementById('empty');
@@ -43,6 +45,13 @@
   var fileInput = document.getElementById('fileInput');
   var progressBar = document.getElementById('progressBar');
   var toTop     = document.getElementById('toTop');
+
+  var videoGallery = document.getElementById('videoGallery');
+  var videoCount   = document.getElementById('videoCount');
+  var videoEmpty   = document.getElementById('videoEmpty');
+  var videoInput   = document.getElementById('videoInput');
+  var statVideos   = document.getElementById('statVideos');
+  var lbVideo      = document.getElementById('lbVideo');
 
   /* ---------------------------------------------------------
      utilidades
@@ -198,6 +207,7 @@
     statPhotos.textContent = total;
     statMeetings.textContent = collectionsMap().size;
     statFree.textContent = free;
+    if (statVideos) statVideos.textContent = videoCards().length;
     footerCount.textContent = total + (total === 1 ? ' foto · ' : ' fotos · ') + TOTAL_SLOTS + ' espaços no total';
   }
 
@@ -215,12 +225,21 @@
   var lbOpen = false;
   var lbList = [];
   var lbIdx = 0;
+  var lbContainer = null;
   var lastFocused = null;
 
   function currentCard() { return lbList[lbIdx]; }
 
-  function openLb(card) {
-    lbList = visibleCards();
+  function cardsIn(root) {
+    return Array.prototype.slice.call(root.querySelectorAll('.photo-card, .video-card'));
+  }
+  function visibleIn(root) {
+    return cardsIn(root).filter(function (c) { return !c.hidden; });
+  }
+
+  function openLb(card, container) {
+    lbContainer = container || gallery;
+    lbList = visibleIn(lbContainer);
     if (!lbList.length) return;
     lbIdx = lbList.indexOf(card);
     if (lbIdx < 0) lbIdx = 0;
@@ -233,12 +252,36 @@
     lbClose.focus();
   }
 
+  function stopMedia() {
+    if (lbVideo) {
+      try { lbVideo.pause(); } catch (e) {}
+      lbVideo.removeAttribute('src');
+      try { lbVideo.load(); } catch (e) {}
+      lbVideo.hidden = true;
+    }
+    lbImg.hidden = true;
+  }
+
   function renderLb() {
     var card = currentCard();
     if (!card) return;
-    var src = card.querySelector('img');
-    lbImg.src = src.currentSrc || src.src;
-    lbImg.alt = src.alt || '';
+
+    stopMedia();
+
+    if ((card.dataset.kind || '') === 'file' && lbVideo) {
+      lbVideo.hidden = false;
+      lbVideo.src = card.dataset.src;
+      var p = lbVideo.play();
+      if (p && p.catch) p.catch(function () {});
+    } else {
+      var src = card.querySelector('img');
+      if (src) {
+        lbImg.src = src.currentSrc || src.src;
+        lbImg.alt = src.alt || '';
+        lbImg.hidden = false;
+      }
+    }
+
     lbDate.textContent = card.dataset.date || '';
     lbCounter.textContent = (lbIdx + 1) + ' / ' + lbList.length;
     preload(lbIdx + 1);
@@ -263,6 +306,7 @@
   function closeLb() {
     if (!lbOpen) return;
     lbOpen = false;
+    stopMedia();
     lightbox.hidden = true;
     document.body.style.overflow = '';
     if (lastFocused && lastFocused.isConnected) lastFocused.focus();
@@ -272,8 +316,17 @@
     var btn = e.target.closest('.photo-card__open');
     if (!btn) return;
     var card = btn.closest('.photo-card');
-    if (card) openLb(card);
+    if (card) openLb(card, gallery);
   });
+
+  if (videoGallery) {
+    videoGallery.addEventListener('click', function (e) {
+      var btn = e.target.closest('.video-card__open');
+      if (!btn) return;
+      var card = btn.closest('.video-card');
+      if (card) openLb(card, videoGallery);
+    });
+  }
 
   lbClose.addEventListener('click', closeLb);
   lbPrev.addEventListener('click', function () { nav(-1); });
@@ -315,6 +368,121 @@
   });
 
   /* ---------------------------------------------------------
+     vídeos
+     --------------------------------------------------------- */
+  function videoCards() {
+    return videoGallery ? Array.prototype.slice.call(videoGallery.querySelectorAll('.video-card')) : [];
+  }
+
+  function renderVideoSlots() {
+    if (!videoGallery) return;
+    var used = videoCards().length;
+    var free = Math.max(0, TOTAL_VIDEO_SLOTS - used);
+
+    Array.prototype.forEach.call(videoGallery.querySelectorAll('.placeholder-card'), function (el) {
+      el.parentNode.removeChild(el);
+    });
+
+    var sectionVisible = videoGallery.getBoundingClientRect().top < window.innerHeight;
+
+    for (var i = 0; i < free; i++) {
+      (function (n) {
+        var b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'placeholder-card';
+        b.setAttribute('aria-label', 'Adicionar um vídeo no espaço ' + n);
+
+        var icon = document.createElement('span');
+        icon.className = 'placeholder-card__icon';
+        icon.setAttribute('aria-hidden', 'true');
+        icon.innerHTML = ICON_PLAY;
+
+        var txt = document.createElement('span');
+        txt.textContent = 'Espaço ' + n;
+
+        b.appendChild(icon);
+        b.appendChild(txt);
+        b.addEventListener('click', function () { if (videoInput) videoInput.click(); });
+
+        videoGallery.appendChild(b);
+        observe(b, i, sectionVisible);
+      })(used + 1 + i);
+    }
+
+    if (videoCount) {
+      videoCount.textContent = free > 0
+        ? (used ? used + (used === 1 ? ' vídeo · ' : ' vídeos · ') : 'Nenhum vídeo ainda · ') +
+          free + (free === 1 ? ' espaço' : ' espaços')
+        : 'Espaços completos · ' + TOTAL_VIDEO_SLOTS;
+    }
+    if (videoEmpty) videoEmpty.hidden = used > 0;
+
+    updateStats();
+  }
+
+  function buildVideoCard(file) {
+    var today = new Date().toLocaleDateString('pt-BR', { day: 'numeric', month: 'long', year: 'numeric' });
+    var url = URL.createObjectURL(file);
+    var name = (file && file.name ? file.name : 'Vídeo').replace(/\.[^.]+$/, '');
+
+    var fig = document.createElement('figure');
+    fig.className = 'video-card';
+    fig.dataset.kind = 'file';
+    fig.dataset.src = url;
+    fig.dataset.title = name;
+    fig.dataset.date = today;
+    fig.innerHTML =
+      '<button class="video-card__open" type="button">' +
+        '<span class="video-card__frame">' +
+          '<video preload="metadata" muted playsinline></video>' +
+          '<span class="video-card__play" aria-hidden="true"><span>' + ICON_PLAY + '</span></span>' +
+        '</span>' +
+        '<span class="video-card__info">' +
+          '<span><strong></strong></span>' +
+          '<span class="video-card__date"></span>' +
+        '</span>' +
+      '</button>';
+
+    fig.querySelector('video').src = url;
+    fig.querySelector('strong').textContent = name;
+    fig.querySelector('.video-card__date').textContent = today;
+    fig.querySelector('.video-card__open').setAttribute('aria-label', 'Assistir: ' + name);
+    return fig;
+  }
+
+  function addVideoFiles(fileList) {
+    var files = Array.prototype.slice.call(fileList || [])
+      .filter(function (f) { return f && f.type && f.type.indexOf('video/') === 0; });
+
+    if (!files.length) {
+      showToast('Escolha arquivos de vídeo (MP4, MOV…).');
+      return;
+    }
+
+    var acima = files.filter(function (f) { return f.size > 100 * 1024 * 1024; });
+
+    files.forEach(function (file) {
+      var card = buildVideoCard(file);
+      var slot = videoGallery.querySelector('.placeholder-card');
+      if (slot) videoGallery.insertBefore(card, slot);
+      else videoGallery.appendChild(card);
+    });
+
+    renderVideoSlots();
+
+    showToast(
+      (files.length === 1 ? '1 vídeo adicionado' : files.length + ' vídeos adicionados') +
+      ' · visível só neste navegador'
+    );
+
+    if (acima.length) {
+      window.setTimeout(function () {
+        showToast('Atenção: ' + acima.length + (acima.length === 1 ? ' arquivo passa' : ' arquivos passam') + ' de 100 MB — o GitHub recusa.');
+      }, 4200);
+    }
+  }
+
+  /* ---------------------------------------------------------
      adicionar fotos
      --------------------------------------------------------- */
   function buildCard(src, file) {
@@ -350,11 +518,14 @@
   }
 
   function addFiles(fileList) {
-    var files = Array.prototype.slice.call(fileList || [])
-      .filter(function (f) { return f && f.type && f.type.indexOf('image/') === 0; });
+    var list = Array.prototype.slice.call(fileList || []);
+    var videos = list.filter(function (f) { return f && f.type && f.type.indexOf('video/') === 0; });
+    var files  = list.filter(function (f) { return f && f.type && f.type.indexOf('image/') === 0; });
+
+    if (videos.length) addVideoFiles(videos);
 
     if (!files.length) {
-      showToast('Escolha arquivos de imagem (JPG, PNG, WEBP…).');
+      if (!videos.length) showToast('Escolha arquivos de imagem ou vídeo (JPG, PNG, MP4…).');
       return;
     }
 
@@ -391,10 +562,21 @@
     b.addEventListener('click', function () { fileInput.click(); });
   });
 
+  Array.prototype.forEach.call(document.querySelectorAll('[data-add-video]'), function (b) {
+    b.addEventListener('click', function () { if (videoInput) videoInput.click(); });
+  });
+
   fileInput.addEventListener('change', function () {
     addFiles(fileInput.files);
     fileInput.value = '';
   });
+
+  if (videoInput) {
+    videoInput.addEventListener('change', function () {
+      addVideoFiles(videoInput.files);
+      videoInput.value = '';
+    });
+  }
 
   /* ---------------------------------------------------------
      drag & drop
@@ -471,6 +653,7 @@
   applyFilter('all');
   refreshLabels();
   renderReserved();
+  renderVideoSlots();
   onScroll();
 
   document.documentElement.dataset.albumReady = '1';
