@@ -1,10 +1,9 @@
 // ============================================================
 // Album - catalogo gerado a partir de fotos/ e videos/
-// Gerado por gen_data.py - nao edite a mao, regenere o arquivo
+// Gerado automaticamente - inclui todos os arquivos das pastas
 // ============================================================
 
 const PHOTOS = [
-  "foto-01.jpeg",
   "foto-02.jpeg",
   "foto-03.jpeg",
   "foto-04.jpeg",
@@ -105,7 +104,11 @@ const VIDEOS = [
   "IMG_0313.MP4",
   "IMG_0417.MP4",
   "IMG_0418.MP4",
-  "WhatsApp Video 2026-10-06 at 23.11.05.mp4"
+  "WhatsApp Video 2026-10-06 at 23.11.05.mp4",
+  // Vídeos que estão na pasta fotos/
+  "IMG_0136.MP4",
+  "IMG_0140.MP4",
+  "IMG_0159.MP4"
 ];
 
 // Organizar por colecoes (mesmos nomes dos filtros do site)
