@@ -1,21 +1,21 @@
 /* ============================================
-   FOTOS ENTRE AMIGOS — TEMA FUTURISTA
+   FOTOS ENTRE AMIGOS — TEMA FUTURISTA AZUL BEBÊ
    ============================================ */
 
 :root {
-  --bg: #0a0a0f;
-  --bg2: #12121a;
-  --card: rgba(255, 255, 255, 0.04);
-  --card-border: rgba(255, 255, 255, 0.08);
-  --text: #e8e8f0;
-  --text-dim: #8888a0;
-  --accent: #00d4ff;
-  --accent2: #7b2fff;
-  --accent3: #ff2d7b;
-  --glow: rgba(0, 212, 255, 0.15);
+  --bg: #e8f4f8;
+  --bg2: #f0f8fb;
+  --card: rgba(255, 255, 255, 0.7);
+  --card-border: rgba(173, 216, 230, 0.5);
+  --text: #2c3e50;
+  --text-dim: #5a7a8a;
+  --accent: #87ceeb;
+  --accent2: #b0e0e6;
+  --accent3: #add8e6;
+  --glow: rgba(135, 206, 235, 0.25);
   --radius: 16px;
   --radius-sm: 10px;
-  --shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  --shadow: 0 8px 32px rgba(135, 206, 235, 0.2);
   --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -38,7 +38,7 @@ body {
   min-height: 100vh;
 }
 
-/* Fundo animado com gradiente */
+/* Fundo animado com gradiente suave */
 body::before {
   content: '';
   position: fixed;
@@ -47,9 +47,9 @@ body::before {
   right: 0;
   bottom: 0;
   background:
-    radial-gradient(ellipse at 20% 20%, rgba(0, 212, 255, 0.08) 0%, transparent 50%),
-    radial-gradient(ellipse at 80% 80%, rgba(123, 47, 255, 0.08) 0%, transparent 50%),
-    radial-gradient(ellipse at 50% 50%, rgba(255, 45, 123, 0.05) 0%, transparent 70%);
+    radial-gradient(ellipse at 20% 20%, rgba(135, 206, 235, 0.15) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 80%, rgba(176, 224, 230, 0.15) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 50%, rgba(173, 216, 230, 0.1) 0%, transparent 70%);
   pointer-events: none;
   z-index: -1;
 }
@@ -61,7 +61,7 @@ body::before {
   left: 0;
   right: 0;
   height: 3px;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(135, 206, 235, 0.2);
   z-index: 1000;
 }
 
@@ -84,7 +84,7 @@ body::before {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(10, 10, 15, 0.8);
+  background: rgba(232, 244, 248, 0.85);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--card-border);
@@ -243,7 +243,7 @@ body::before {
   font-weight: 800;
   line-height: 1.1;
   margin-bottom: 1rem;
-  background: linear-gradient(135deg, #fff 0%, var(--accent) 50%, var(--accent2) 100%);
+  background: linear-gradient(135deg, #2c3e50 0%, var(--accent) 50%, var(--accent2) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -341,14 +341,14 @@ body::before {
 }
 
 .chip span {
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.5);
   padding: 0.15rem 0.5rem;
   border-radius: 50px;
   font-size: 0.75rem;
 }
 
 .chip.active span {
-  background: rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.3);
 }
 
 /* Contador */
@@ -393,7 +393,7 @@ body::before {
 .photo-card:hover {
   transform: translateY(-4px);
   border-color: var(--accent);
-  box-shadow: 0 12px 40px rgba(0, 212, 255, 0.15);
+  box-shadow: 0 12px 40px rgba(135, 206, 235, 0.25);
 }
 
 .photo-card__open {
@@ -425,7 +425,7 @@ body::before {
   left: 0;
   right: 0;
   padding: 1.5rem 1rem 0.75rem;
-  background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.6));
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
@@ -450,7 +450,7 @@ body::before {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.2);
   border-radius: 50%;
   backdrop-filter: blur(10px);
 }
@@ -479,7 +479,7 @@ body::before {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.95);
+  background: rgba(232, 244, 248, 0.95);
   backdrop-filter: blur(20px);
   z-index: 2000;
   display: flex;
@@ -506,7 +506,7 @@ body::before {
   max-height: 85vh;
   object-fit: contain;
   border-radius: var(--radius-sm);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 20px 60px rgba(135, 206, 235, 0.3);
 }
 
 .lightbox__close {
@@ -626,7 +626,7 @@ body::before {
 .video-card:hover {
   transform: translateY(-4px);
   border-color: var(--accent2);
-  box-shadow: 0 12px 40px rgba(123, 47, 255, 0.15);
+  box-shadow: 0 12px 40px rgba(176, 224, 230, 0.25);
 }
 
 .video-card video {
@@ -683,7 +683,7 @@ body::before {
 .album-cta {
   text-align: center;
   padding: 4rem 1.5rem;
-  background: linear-gradient(135deg, rgba(0, 212, 255, 0.05), rgba(123, 47, 255, 0.05));
+  background: linear-gradient(135deg, rgba(135, 206, 235, 0.1), rgba(176, 224, 230, 0.1));
   border-top: 1px solid var(--card-border);
 }
 
@@ -821,9 +821,9 @@ body::before {
   position: absolute;
   top: 10px;
   right: 10px;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(255, 255, 255, 0.7);
   border: none;
-  color: #fff;
+  color: var(--text);
   width: 36px;
   height: 36px;
   border-radius: 50%;
