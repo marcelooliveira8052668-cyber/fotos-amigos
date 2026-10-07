@@ -45,7 +45,7 @@ setTimeout(function(){
 
     <div class="hero__stats">
       <div class="stat">
-        <span class="stat__num" id="statPhotos">38</span>
+        <span class="stat__num" id="statPhotos">39</span>
         <span class="stat__label">fotos</span>
       </div>
       <span class="stat__sep" aria-hidden="true"></span>
@@ -60,7 +60,7 @@ setTimeout(function(){
       </div>
       <span class="stat__sep" aria-hidden="true"></span>
       <div class="stat">
-        <span class="stat__num" id="statFree">82</span>
+        <span class="stat__num" id="statFree">81</span>
         <span class="stat__label">espaços livres</span>
       </div>
     </div>
@@ -91,14 +91,14 @@ setTimeout(function(){
         </div>
 
         <div class="filters" role="group" aria-label="Filtrar fotos por mês">
-          <button class="chip is-active" type="button" data-filter="all">Todas <span data-count="all">38</span></button>
+          <button class="chip is-active" type="button" data-filter="all">Todas <span data-count="all">39</span></button>
           <button class="chip" type="button" data-filter="setembro">Setembro <span data-count="setembro">11</span></button>
-          <button class="chip" type="button" data-filter="outubro">Outubro <span data-count="outubro">24</span></button>
+          <button class="chip" type="button" data-filter="outubro">Outubro <span data-count="outubro">25</span></button>
             <button class="chip" type="button" data-filter="dezembro">Dezembro <span data-count="dezembro">3</span></button>
         </div>
       </div>
 
-      <p class="count" id="count" aria-live="polite">Mostrando 38 de 38 fotos</p>
+      <p class="count" id="count" aria-live="polite">Mostrando 39 de 39 fotos</p>
 
       <div class="gallery" id="gallery">
 
@@ -431,7 +431,60 @@ setTimeout(function(){
         </figure>
       </div>
 
-      <p class="empty" id="videoEmpty" hidden>Espaço reservado — clique em <strong>Escolher do PC</strong> e aponte um vídeo de show ou aniversário.</p>
+      
+<figure class="video-card reveal" data-kind="file"
+                data-src="videos/videos/IMG_0129-MOV.mp4"
+                data-title="0129 MOV" data-date="28 de junho de 2024">
+          <button class="video-card__open" type="button" aria-label="Assistir: 0129 MOV">
+            <span class="video-card__frame">
+              <video src="videos/videos/IMG_0129-MOV.mp4" preload="metadata" muted playsinline></video>
+              <span class="video-card__play" aria-hidden="true"><span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></span>
+            </span>
+            <span class="video-card__info">
+              <span><strong>0129 MOV</strong></span>
+              <span class="video-card__date">28 de junho de 2024</span>
+            </span>
+          </button>
+        </figure><figure class="video-card reveal" data-kind="file"
+                data-src="videos/videos/IMG_0136-MOV.mp4"
+                data-title="0136 MOV" data-date="28 de junho de 2024">
+          <button class="video-card__open" type="button" aria-label="Assistir: 0136 MOV">
+            <span class="video-card__frame">
+              <video src="videos/videos/IMG_0136-MOV.mp4" preload="metadata" muted playsinline></video>
+              <span class="video-card__play" aria-hidden="true"><span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></span>
+            </span>
+            <span class="video-card__info">
+              <span><strong>0136 MOV</strong></span>
+              <span class="video-card__date">28 de junho de 2024</span>
+            </span>
+          </button>
+        </figure><figure class="video-card reveal" data-kind="file"
+                data-src="videos/videos/IMG_0140-MOV.mp4"
+                data-title="0140 MOV" data-date="28 de junho de 2024">
+          <button class="video-card__open" type="button" aria-label="Assistir: 0140 MOV">
+            <span class="video-card__frame">
+              <video src="videos/videos/IMG_0140-MOV.mp4" preload="metadata" muted playsinline></video>
+              <span class="video-card__play" aria-hidden="true"><span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></span>
+            </span>
+            <span class="video-card__info">
+              <span><strong>0140 MOV</strong></span>
+              <span class="video-card__date">28 de junho de 2024</span>
+            </span>
+          </button>
+        </figure><figure class="video-card reveal" data-kind="file"
+                data-src="videos/videos/show-01.mp4"
+                data-title="show 01" data-date="28 de junho de 2024">
+          <button class="video-card__open" type="button" aria-label="Assistir: show 01">
+            <span class="video-card__frame">
+              <video src="videos/videos/show-01.mp4" preload="metadata" muted playsinline></video>
+              <span class="video-card__play" aria-hidden="true"><span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></span>
+            </span>
+            <span class="video-card__info">
+              <span><strong>show 01</strong></span>
+              <span class="video-card__date">28 de junho de 2024</span>
+            </span>
+          </button>
+        </figure><p class="empty" id="videoEmpty" hidden>Espaço reservado — clique em <strong>Escolher do PC</strong> e aponte um vídeo de show ou aniversário.</p>
 
     </div>
   </section>
@@ -451,7 +504,7 @@ setTimeout(function(){
         </p>
       </div>
 
-      <p class="count" id="reservedCount">82 espaços livres · 120 no total</p>
+      <p class="count" id="reservedCount">81 espaços livres · 120 no total</p>
 
       <div class="gallery gallery--reserved" id="reserved"></div>
 
@@ -465,7 +518,7 @@ setTimeout(function(){
 <footer class="footer">
   <div class="container footer__inner">
     <p>Feito com carinho para os amigos 💛</p>
-    <p id="footerCount">38 fotos · 120 espaços no total</p>
+    <p id="footerCount">39 fotos · 120 espaços no total</p>
   </div>
 </footer>
 
@@ -480,7 +533,7 @@ setTimeout(function(){
     <button class="lb-btn" id="lbClose" type="button" aria-label="Fechar visualizador">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
     </button>
-    <span class="lb-counter" id="lbCounter" aria-live="polite">1 / 38</span>
+    <span class="lb-counter" id="lbCounter" aria-live="polite">1 / 39</span>
   </div>
 
   <button class="lb-nav lb-nav--prev" id="lbPrev" type="button" aria-label="Foto anterior">
@@ -518,3 +571,11 @@ setTimeout(function(){
 <script src="script.js"></script>
 </body>
 </html>
+
+<figure class="photo-card reveal" data-collection="outubro" data-date="6 de outubro de 2026">
+  <button class="photo-card__open" type="button" aria-label="Ampliar foto 39 de 39">
+    <img src="fotos/foto-39.jpeg" alt="Foto 39 do álbum — Foto 39 do álbum — 6 de outubro de 2026" width="1280" height="960" loading="lazy" decoding="async">
+    <span class="photo-card__meta"><span class="photo-card__date">6 de outubro de 2026</span><span class="photo-card__zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></span></span>
+  </button>
+</figure>
+
